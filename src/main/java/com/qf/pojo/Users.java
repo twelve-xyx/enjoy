@@ -1,6 +1,7 @@
 package com.qf.pojo;
 
 import java.util.Date;
+import java.util.List;
 
 public class Users {
     private Integer uid;
@@ -28,6 +29,26 @@ public class Users {
     private Integer state;
 
     private Date registertime;
+
+    private List<Pictures> picturesList;
+
+    private List<Lables> lablesList;
+
+    public List<Pictures> getPicturesList() {
+        return picturesList;
+    }
+
+    public void setPicturesList(List<Pictures> picturesList) {
+        this.picturesList = picturesList;
+    }
+
+    public List<Lables> getLablesList() {
+        return lablesList;
+    }
+
+    public void setLablesList(List<Lables> lablesList) {
+        this.lablesList = lablesList;
+    }
 
     public Integer getUid() {
         return uid;
