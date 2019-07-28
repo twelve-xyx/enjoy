@@ -11,7 +11,9 @@ import org.springframework.ui.ModelMap;
 import javax.annotation.Resource;
 import java.nio.channels.FileChannel;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 半城烟雨半城沙,我在等风也等你
@@ -22,17 +24,15 @@ public class UsersController {
 	@Resource
 	private UsersService usersService;
 
-	@RequestMapping("/index/findall")
+	@RequestMapping("/find")
 	@ResponseBody
-	public DataView findall(ModelMap map,int uid){
-		Users users = usersService.findbyuid(uid);
-		List list=new ArrayList();
-		list.add(users);
-		DataView<Users> dataView=new DataView<>();
-		dataView.setCode(0);
-		dataView.setMsg("成功");
-		dataView.setData(list);
-		return dataView;
+	public Map<String,Object> findall(int uid){
+		Users users = usersService.selectByPrimaryKey(uid);
+		Map map=new HashMap();
+		map.put("code",1);
+		map.put("msg","成功");
+		map.put("data",users);
+		return map;
 	}
 
 }

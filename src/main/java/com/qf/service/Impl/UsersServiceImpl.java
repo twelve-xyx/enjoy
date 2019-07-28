@@ -20,7 +20,37 @@ public class UsersServiceImpl implements UsersService {
 
 
 	@Override
-	public Users findbyuid(int uid) {
-		return usersMapper.findbyuid(uid);
+	public int deleteByPrimaryKey(Integer uid) {
+		return 0;
 	}
+
+	@Override
+	public int insert(Users record) {
+		return 0;
+	}
+
+	@Override
+	public int insertSelective(Users record) {
+		return 0;
+	}
+
+	@Override
+	public Users selectByPrimaryKey(Integer uid) {
+		return usersMapper.selectByPrimaryKey(uid);
+	}
+
+	@Override
+	public int updateByPrimaryKeySelective(Users record) {
+		return 0;
+	}
+
+	@Override
+	public int updateByPrimaryKey(Users record) {
+		return 0;
+	}
+
+	/*@Override
+	public Users findbyuid(int uid) {
+		return usersMapper.selectByPrimaryKey(uid);
+	}*/
 }

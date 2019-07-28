@@ -17,7 +17,7 @@ public interface UsersMapper {
 
     int updateByPrimaryKey(Users record);
 
-    //查询所有数据,用户信息+精选图片+个人标签
+   /* //查询所有数据,用户信息+精选图片+个人标签
     //三表联查
-    public Users findbyuid(int uid);
+    public Users findbyuid(int uid);*/
 }

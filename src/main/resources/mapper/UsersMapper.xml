@@ -15,13 +15,13 @@
     <result column="distance" jdbcType="DOUBLE" property="distance" />
     <result column="state" jdbcType="INTEGER" property="state" />
     <result column="registertime" jdbcType="TIMESTAMP" property="registertime" />
-    <collection property="pictures" ofType="com.qf.pojo.Pictures">
+    <collection property="picturesList" ofType="com.qf.pojo.Pictures">
       <id column="pid" jdbcType="INTEGER" property="pid" />
       <result column="pname" jdbcType="VARCHAR" property="pname" />
       <result column="paddress" jdbcType="VARCHAR" property="paddress" />
       <result column="uid" jdbcType="INTEGER" property="uid" />
     </collection>
-    <collection property="lables" ofType="com.qf.pojo.Lables">
+    <collection property="lablesList" ofType="com.qf.pojo.Lables">
       <id column="lid" jdbcType="INTEGER" property="lid" />
       <result column="lname" jdbcType="VARCHAR" property="lname" />
       <result column="uid" jdbcType="INTEGER" property="uid" />
@@ -33,10 +33,10 @@
   </sql>
 
 
-  <select id="findbyuid" resultMap="BaseResultMap">
+<!--  <select id="findbyuid" resultMap="BaseResultMap">
     select *from users u,lables l,pictures p
     where u.uid=l.uid and u.uid=p.uid and u.uid=#{uid}
-  </select>
+  </select>-->
 
 
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">

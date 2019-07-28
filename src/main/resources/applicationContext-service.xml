@@ -24,7 +24,7 @@
     <context:component-scan base-package="com.qf.service"></context:component-scan>
 
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <property name="dataSource" ref="dataSource"></property>
+        <property name="dataSource" ref="db"></property>
     </bean>
 
     <tx:advice id="myAdvice">
