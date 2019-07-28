@@ -19,12 +19,10 @@
       <id column="pid" jdbcType="INTEGER" property="pid" />
       <result column="pname" jdbcType="VARCHAR" property="pname" />
       <result column="paddress" jdbcType="VARCHAR" property="paddress" />
-      <result column="uid" jdbcType="INTEGER" property="uid" />
     </collection>
     <collection property="lablesList" ofType="com.qf.pojo.Lables">
       <id column="lid" jdbcType="INTEGER" property="lid" />
       <result column="lname" jdbcType="VARCHAR" property="lname" />
-      <result column="uid" jdbcType="INTEGER" property="uid" />
     </collection>
   </resultMap>
   <sql id="Base_Column_List">
@@ -34,7 +32,7 @@
 
 
  <select id="findbyuid" resultMap="BaseResultMap">
-    select *from users u,lables l,pictures p
+    select * from users u,lables l,pictures p
     where u.uid=l.uid and u.uid=p.uid and u.uid=#{uid}
   </select>
 

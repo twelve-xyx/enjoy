@@ -15,7 +15,6 @@ public class Test {
 
 		Users users = usersService.selectByPrimaryKey(1);
 
-		Integer age = users.getAge();
-		System.out.println(age);
+		System.out.println(users.toString());
 	}
 }

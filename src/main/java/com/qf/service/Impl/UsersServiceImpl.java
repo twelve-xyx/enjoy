@@ -51,7 +51,7 @@ public class UsersServiceImpl implements UsersService {
 
 	@Override
 	public Users findbyuid(int uid) {
-		return usersMapper.selectByPrimaryKey(uid);
+		return usersMapper.findbyuid(uid);
 	}
 
 	/*@Override
