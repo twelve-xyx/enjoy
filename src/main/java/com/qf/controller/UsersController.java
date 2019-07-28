@@ -27,7 +27,7 @@ public class UsersController {
 	@RequestMapping("/find")
 	@ResponseBody
 	public Map<String,Object> findall(int uid){
-		Users users = usersService.selectByPrimaryKey(uid);
+		Users users = usersService.findbyuid(uid);
 		Map map=new HashMap();
 		map.put("code",1);
 		map.put("msg","成功");

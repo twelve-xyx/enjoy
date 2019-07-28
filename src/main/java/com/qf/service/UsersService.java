@@ -20,7 +20,7 @@ public interface UsersService {
 
 	int updateByPrimaryKey(Users record);
 
-	//查询所有数据,用户信息+精选图片+个人标签
-	//三表联查
-//	public Users findbyuid(int uid);
+//	查询所有数据,用户信息+精选图片+个人标签
+//	三表联查
+	public Users findbyuid(int uid);
 }

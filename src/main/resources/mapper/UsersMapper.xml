@@ -33,10 +33,10 @@
   </sql>
 
 
-<!--  <select id="findbyuid" resultMap="BaseResultMap">
+ <select id="findbyuid" resultMap="BaseResultMap">
     select *from users u,lables l,pictures p
     where u.uid=l.uid and u.uid=p.uid and u.uid=#{uid}
-  </select>-->
+  </select>
 
 
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">

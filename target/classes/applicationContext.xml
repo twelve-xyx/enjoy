@@ -28,7 +28,7 @@ http://www.springframework.org/schema/mvc
         <property name="driverClassName" value="${driver}"/>
         <property name="username" value="${uname}"/>
         <property name="password" value="${password}"/>
-        <property name="url" value="http://www.example.com"/>
+        <property name="url" value="${url}"/>
     </bean>
     <!--4.创建session工厂-->
     <bean id="fac" class="org.mybatis.spring.SqlSessionFactoryBean">

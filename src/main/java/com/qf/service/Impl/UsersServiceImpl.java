@@ -49,6 +49,11 @@ public class UsersServiceImpl implements UsersService {
 		return 0;
 	}
 
+	@Override
+	public Users findbyuid(int uid) {
+		return usersMapper.selectByPrimaryKey(uid);
+	}
+
 	/*@Override
 	public Users findbyuid(int uid) {
 		return usersMapper.selectByPrimaryKey(uid);
