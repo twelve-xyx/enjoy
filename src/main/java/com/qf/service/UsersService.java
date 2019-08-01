@@ -1,8 +1,13 @@
 package com.qf.service;
 
+
+import com.qf.pojo.Dynamic;
+import com.qf.pojo.Friend;
+
 import com.qf.pojo.Users;
 
 import java.util.List;
+
 
 /**
  * 半城烟雨半城沙,我在等风也等你
@@ -23,4 +28,15 @@ public interface UsersService {
 //	查询所有数据,用户信息+精选图片+个人标签
 //	三表联查
 	public Users findbyuid(int uid);
+
+
+	//我的详细资料(主键查询用户表)
+    public Users getUsers(Users users);
+    //我的动态
+    public List<Dynamic> getDynamic(Dynamic dynamic);
+    //最近来访的id
+    public List<Friend> findFriend(Friend friend);
+   //最近来访的详细资料
+    public List<Users> findFriendMsg(List list);
+
 }
