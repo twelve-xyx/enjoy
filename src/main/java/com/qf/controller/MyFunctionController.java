@@ -15,25 +15,28 @@ import java.util.List;
 public class MyFunctionController {
     @Resource
     private UsersService usersServicel;
+
+
+//我的详细资料
     @RequestMapping("/user/userinformation")
     public Users myInfo(Users users){
         return usersServicel.getUsers(users);
     }
 
 
-
+//我的动态
     @RequestMapping("/user/myDynamic")
     public List<Dynamic> myDynamic(Dynamic dynamic){
         return usersServicel.getDynamic(dynamic);
     }
 
-
+//好友的动态
     @RequestMapping("/user/userDynamic")
     public List<Dynamic> userDynamic(Dynamic dynamic)
     {
         return usersServicel.getDynamic(dynamic);
     }
-
+//最近来访
     @RequestMapping("/user/rvisitor")
     public List<Users> getRecentVisitor(Friend friend){
       List<Friend> friends=new ArrayList<>();
