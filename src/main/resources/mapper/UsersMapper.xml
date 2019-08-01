@@ -216,7 +216,7 @@
     <result column="distance" jdbcType="DOUBLE" property="distance" />
     <result column="state" jdbcType="INTEGER" property="state" />
     <result column="registertime" jdbcType="TIMESTAMP" property="registertime" />
-  <collection property="lables" ofType="com.qf.pojo.Lables">
+  <collection property="lablesList" ofType="com.qf.pojo.Lables">
       <id column="lid" jdbcType="INTEGER" property="lid" />
       <result column="lname" jdbcType="VARCHAR" property="lname" />
       <result column="uid" jdbcType="INTEGER" property="uid" />
@@ -225,7 +225,7 @@
 
 
   <select id="selectUsersMsg" resultMap="sUM">
-    select *from users,lables where users.uid=lables.uid
+    select *from users,lables where users.uid=lables.uid and users.uid=#{uid}
   </select>
 
 
@@ -253,7 +253,7 @@
     <result column="distance" jdbcType="DOUBLE" property="distance" />
     <result column="state" jdbcType="INTEGER" property="state" />
     <result column="registertime" jdbcType="TIMESTAMP" property="registertime" />
-    <collection property="lables" ofType="com.qf.pojo.Lables">
+    <collection property="lablesList" ofType="com.qf.pojo.Lables">
       <id column="lid" jdbcType="INTEGER" property="lid" />
       <result column="lname" jdbcType="VARCHAR" property="lname" />
       <result column="uid" jdbcType="INTEGER" property="uid" />
