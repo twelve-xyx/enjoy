@@ -20,4 +20,7 @@ public interface UsersMapper {
     //查询所有数据,用户信息+精选图片+个人标签
     //三表联查
     public Users findbyuid(int uid);
+
+    //查询全部
+    public List<Users> findall();
 }

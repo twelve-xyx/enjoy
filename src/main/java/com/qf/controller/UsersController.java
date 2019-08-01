@@ -10,10 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import javax.annotation.Resource;
 import java.nio.channels.FileChannel;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * 半城烟雨半城沙,我在等风也等你
@@ -24,7 +21,7 @@ public class UsersController {
 	@Resource
 	private UsersService usersService;
 
-	@RequestMapping("/find")
+	@RequestMapping("/index/findall")
 	@ResponseBody
 	public Map<String,Object> findall(int uid){
 		Users users = usersService.findbyuid(uid);
@@ -34,5 +31,20 @@ public class UsersController {
 		map.put("data",users);
 		return map;
 	}
+
+	@RequestMapping("/index/findbyid")
+	@ResponseBody
+	public Map CountUsers(){
+		List<Users> users = usersService.findall();
+		int size = users.size();
+		int id = (int) (1+Math.random() * size);
+		Users user = usersService.findbyuid(id);
+		Map map=new HashMap();
+		map.put("code",1);
+		map.put("msg","成功");
+		map.put("data",user);
+		return map;
+	}
+
 
 }

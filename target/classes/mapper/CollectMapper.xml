@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.dao.CollectMapper">
+  <resultMap id="BaseResultMap" type="com.qf.pojo.Collect">
+    <id column="cid" jdbcType="INTEGER" property="cid" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="userpicture" jdbcType="VARCHAR" property="userpicture" />
+    <result column="createtime" jdbcType="DATE" property="createtime" />
+    <result column="uid" jdbcType="INTEGER" property="uid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    cid, username, userpicture, createtime, uid
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from collect
+    where cid = #{cid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from collect
+    where cid = #{cid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.qf.pojo.Collect">
+    insert into collect (cid, username, userpicture, 
+      createtime, uid)
+    values (#{cid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{userpicture,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=DATE}, #{uid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.qf.pojo.Collect">
+    insert into collect
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cid != null">
+        cid,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="userpicture != null">
+        userpicture,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="uid != null">
+        uid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cid != null">
+        #{cid,jdbcType=INTEGER},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="userpicture != null">
+        #{userpicture,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=DATE},
+      </if>
+      <if test="uid != null">
+        #{uid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qf.pojo.Collect">
+    update collect
+    <set>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="userpicture != null">
+        userpicture = #{userpicture,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=DATE},
+      </if>
+      <if test="uid != null">
+        uid = #{uid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where cid = #{cid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qf.pojo.Collect">
+    update collect
+    set username = #{username,jdbcType=VARCHAR},
+      userpicture = #{userpicture,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=DATE},
+      uid = #{uid,jdbcType=INTEGER}
+    where cid = #{cid,jdbcType=INTEGER}
+  </update>
+</mapper>

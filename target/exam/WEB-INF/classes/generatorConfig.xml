@@ -46,7 +46,7 @@
         </javaClientGenerator>
 
 
-        <table tableName="users" enableCountByExample="false"
+        <!--<table tableName="users" enableCountByExample="false"
                enableUpdateByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" selectByExampleQueryId="false">
         </table>
@@ -55,6 +55,10 @@
                enableSelectByExample="false" selectByExampleQueryId="false">
         </table>
         <table tableName="lables" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false">
+        </table>-->
+        <table tableName="collect" enableCountByExample="false"
                enableUpdateByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" selectByExampleQueryId="false">
         </table>
