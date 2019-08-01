@@ -21,6 +21,17 @@ public interface UsersMapper {
     //三表联查
     public Users findbyuid(int uid);
 
+
+    //我的详细资料
+    Users selectUsersMsg(Users users);
+     //我的动态
+    List<Dynamic> findMyDynamic(Dynamic dynamic);
+    //最近访问
+    List<Users> findMsgByFriend(List<Friend> list);
+
+
+
+
     //查询全部
     public List<Users> findall();
 }
