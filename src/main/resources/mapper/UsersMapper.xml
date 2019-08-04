@@ -31,7 +31,7 @@
   </sql>
 
 
- <select id="findbyuid" resultMap="BaseResultMap">
+  <select id="findbyuid" resultMap="BaseResultMap">
     select * from users u,lables l,pictures p
     where u.uid=l.uid and u.uid=p.uid and u.uid=#{uid}
   </select>
@@ -207,4 +207,62 @@
       registertime = #{registertime,jdbcType=TIMESTAMP}
     where uid = #{uid,jdbcType=INTEGER}
   </update>
+  <resultMap id="sUM" type="com.qf.pojo.Users">
+    <id column="uid" jdbcType="INTEGER" property="uid" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="uname" jdbcType="VARCHAR" property="uname" />
+    <result column="uphone" jdbcType="VARCHAR" property="uphone" />
+    <result column="sex" jdbcType="INTEGER" property="sex" />
+    <result column="profession" jdbcType="VARCHAR" property="profession" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="age" jdbcType="INTEGER" property="age" />
+    <result column="userpicture" jdbcType="VARCHAR" property="userpicture" />
+    <result column="distance" jdbcType="DOUBLE" property="distance" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+    <result column="registertime" jdbcType="TIMESTAMP" property="registertime" />
+  <collection property="lablesList" ofType="com.qf.pojo.Lables">
+      <id column="lid" jdbcType="INTEGER" property="lid" />
+      <result column="lname" jdbcType="VARCHAR" property="lname" />
+      <result column="uid" jdbcType="INTEGER" property="uid" />
+  </collection>
+  </resultMap>
+
+
+  <select id="selectUsersMsg" resultMap="sUM">
+    select *from users,lables where users.uid=lables.uid and users.uid=#{uid}
+  </select>
+
+
+  <select id="findMyDynamic" resultType="com.qf.pojo.Dynamic">
+    select *from dynamic where uid=#{uid}
+  </select>
+
+  <select id="findMsgByFriend" resultMap="fMBF">
+     select *from users,lables where users.uid=lables.uid and  users.uid in
+     <foreach collection="list" index="a" item="b" separator="," open="(" close=")">
+       #{b}
+     </foreach>
+  </select>
+  <resultMap id="fMBF" type="com.qf.pojo.Users">
+    <id column="uid" jdbcType="INTEGER" property="uid" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="uname" jdbcType="VARCHAR" property="uname" />
+    <result column="uphone" jdbcType="VARCHAR" property="uphone" />
+    <result column="sex" jdbcType="INTEGER" property="sex" />
+    <result column="profession" jdbcType="VARCHAR" property="profession" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="age" jdbcType="INTEGER" property="age" />
+    <result column="userpicture" jdbcType="VARCHAR" property="userpicture" />
+    <result column="distance" jdbcType="DOUBLE" property="distance" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+    <result column="registertime" jdbcType="TIMESTAMP" property="registertime" />
+    <collection property="lablesList" ofType="com.qf.pojo.Lables">
+      <id column="lid" jdbcType="INTEGER" property="lid" />
+      <result column="lname" jdbcType="VARCHAR" property="lname" />
+      <result column="uid" jdbcType="INTEGER" property="uid" />
+    </collection>
+  </resultMap>
+
 </mapper>
