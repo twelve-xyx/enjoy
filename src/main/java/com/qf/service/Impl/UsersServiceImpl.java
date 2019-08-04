@@ -54,6 +54,10 @@ public class UsersServiceImpl implements UsersService {
 		return usersMapper.findbyuid(uid);
 	}
 
+	public List<Users> findall(){
+		return usersMapper.findall();
+	}
+
 	/*@Override
 	public Users findbyuid(int uid) {
 		return usersMapper.selectByPrimaryKey(uid);
