@@ -28,10 +28,16 @@ public class CollectController {
 	private UsersService usersService;
 
 
+	/**
+	 *  添加到我的收藏,
+	 * @param uid       要添加到收藏列表的id
+	 * @param currentUid    当前用户的id
+	 * @return
+	 */
 	@RequestMapping("/index/insertCollect")
 	@ResponseBody
 	public Map<String,Object> findall(int uid,int currentUid){
-		Users users = usersService.findbyuid(uid);
+		Users users = usersService.findById(uid);
 		Collect collect=new Collect();
 		//传入当前登录用户id
 		collect.setUid(currentUid);
@@ -40,9 +46,17 @@ public class CollectController {
 		collect.setUserpicture(users.getUserpicture());
 		int i = collectService.insertSelective(collect);
 		Map map=new HashMap();
-		map.put("code",i);
-		map.put("msg","成功");
-		map.put("data","");
+		if (i>0){
+			map.put("code",i);
+			map.put("msg","成功");
+			map.put("data","");
+		}else{
+			map.put("code",0);
+			map.put("msg","失败");
+			map.put("data","");
+		}
+
+
 		return map;
 	}
 

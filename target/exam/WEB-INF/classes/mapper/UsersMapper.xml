@@ -30,15 +30,19 @@
     distance, state, registertime
   </sql>
 
-
-  <select id="findbyuid" resultMap="BaseResultMap">
-    select * from users u,lables l,pictures p
-    where u.uid=l.uid and u.uid=p.uid and u.uid=#{uid}
+  <select id="findAll" resultMap="BaseResultMap">
+        select * from users u,lables l,pictures p
+    where u.uid=l.uid and u.uid=p.uid
   </select>
 
   <select id="findall" resultMap="BaseResultMap">
         select * from users u,lables l,pictures p
     where u.uid=l.uid and u.uid=p.uid
+  </select>
+
+  <select id="findById" resultMap="BaseResultMap">
+        select * from users u,lables l,pictures p
+    where u.uid=l.uid and u.uid=p.uid and u.uid=#{uid}
   </select>
 
 

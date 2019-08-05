@@ -34,6 +34,16 @@ public class Users {
 
     private List<Lables> lablesList;
 
+    private List<Dynamic> dynamicList;
+
+    public List<Dynamic> getDynamicList() {
+        return dynamicList;
+    }
+
+    public void setDynamicList(List<Dynamic> dynamicList) {
+        this.dynamicList = dynamicList;
+    }
+
     public List<Pictures> getPicturesList() {
         return picturesList;
     }

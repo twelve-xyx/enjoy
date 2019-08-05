@@ -1,5 +1,6 @@
 package com.qf.service;
 
+import com.github.pagehelper.PageInfo;
 import com.qf.pojo.Users;
 
 import java.util.List;
@@ -22,7 +23,10 @@ public interface UsersService {
 
 //	查询所有数据,用户信息+精选图片+个人标签
 //	三表联查
-	public Users findbyuid(int uid);
-
 	public List<Users> findall();
+
+	public PageInfo<Users> findAll(int index, int size );
+
+	//根据id查询用户全部信息
+	public Users findById(int uid);
 }

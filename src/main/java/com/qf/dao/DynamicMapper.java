@@ -28,4 +28,6 @@ public interface DynamicMapper {
     int updateByPrimaryKeySelective(Dynamic record);
 
     int updateByPrimaryKey(Dynamic record);
+
+    public List<Dynamic> indexFindByUid();
 }

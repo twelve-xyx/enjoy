@@ -19,8 +19,9 @@ public interface UsersMapper {
 
     //查询所有数据,用户信息+精选图片+个人标签
     //三表联查
-    public Users findbyuid(int uid);
-
-    //首页查询全部
     public List<Users> findall();
+    public List<Users> findAll();
+
+    //根据id查询当前用户的信息
+    public Users findById(int uid);
 }
