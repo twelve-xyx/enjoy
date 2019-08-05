@@ -21,7 +21,7 @@ public class UsersController {
 	@Resource
 	private UsersService usersService;
 
-	@RequestMapping("/index/findall")
+	@RequestMapping("/index/findbyid")
 	@ResponseBody
 	public Map<String,Object> findall(int uid){
 		Users users = usersService.findbyuid(uid);
@@ -32,7 +32,7 @@ public class UsersController {
 		return map;
 	}
 
-	@RequestMapping("/index/findbyid")
+	@RequestMapping("/index/findone")
 	@ResponseBody
 	public Map CountUsers(){
 		List<Users> users = usersService.findall();
