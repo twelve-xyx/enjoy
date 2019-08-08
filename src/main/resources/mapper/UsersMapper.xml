@@ -30,6 +30,14 @@
     distance, state, registertime
   </sql>
 
+
+  <select id="findByUsername" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from users
+    where username like '%${username}%'
+  </select>
+
   <select id="findAll" resultMap="BaseResultMap">
         select * from users u,lables l,pictures p
     where u.uid=l.uid and u.uid=p.uid

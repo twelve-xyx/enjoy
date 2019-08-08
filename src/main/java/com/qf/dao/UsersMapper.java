@@ -1,8 +1,10 @@
 package com.qf.dao;
 
+import com.qf.pojo.Friendlist;
 import com.qf.pojo.Users;
 
 import java.util.List;
+import java.util.Map;
 
 public interface UsersMapper {
     int deleteByPrimaryKey(Integer uid);
@@ -24,4 +26,6 @@ public interface UsersMapper {
 
     //根据id查询当前用户的信息
     public Users findById(int uid);
+
+    public List<Users> findByUsername(Map map);
 }

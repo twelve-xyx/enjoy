@@ -1,5 +1,7 @@
 package com.qf.pojo;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 import java.util.List;
 
@@ -28,6 +30,7 @@ public class Users {
 
     private Integer state;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date registertime;
 
     private List<Pictures> picturesList;

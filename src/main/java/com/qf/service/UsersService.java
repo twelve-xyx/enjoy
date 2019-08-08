@@ -1,9 +1,11 @@
 package com.qf.service;
 
 import com.github.pagehelper.PageInfo;
+import com.qf.pojo.Friendlist;
 import com.qf.pojo.Users;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 半城烟雨半城沙,我在等风也等你
@@ -29,4 +31,6 @@ public interface UsersService {
 
 	//根据id查询用户全部信息
 	public Users findById(int uid);
+
+	public List<Users> findByUsername(Map map);
 }

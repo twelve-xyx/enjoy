@@ -1,11 +1,11 @@
-package com.qf.dao;
+package com.qf.service;
 
 import com.qf.pojo.Friendlist;
 
 import java.util.List;
 import java.util.Map;
 
-public interface FriendlistMapper {
+public interface FriendlistService {
     int deleteByPrimaryKey(Integer fid);
 
     int insert(Friendlist record);

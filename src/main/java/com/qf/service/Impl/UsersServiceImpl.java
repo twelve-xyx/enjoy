@@ -4,6 +4,7 @@ import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.qf.dao.UsersMapper;
+import com.qf.pojo.Friendlist;
 import com.qf.pojo.Users;
 import com.qf.service.UsersService;
 import org.springframework.stereotype.Service;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 半城烟雨半城沙,我在等风也等你
@@ -68,5 +70,9 @@ public class UsersServiceImpl implements UsersService {
 
 	public Users findById(int uid){
 		return usersMapper.findById(uid);
+	}
+
+	public List<Users> findByUsername(Map map){
+		return usersMapper.findByUsername(map);
 	}
 }

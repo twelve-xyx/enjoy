@@ -1,11 +1,10 @@
-package com.qf.dao;
+package com.qf.service;
 
 import com.qf.pojo.FrieandApply;
-import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-public interface FrieandApplyMapper {
+public interface FrieandApplyService {
     int deleteByPrimaryKey(Integer fid);
 
     int insert(FrieandApply record);
@@ -17,8 +16,7 @@ public interface FrieandApplyMapper {
     int updateByPrimaryKeySelective(FrieandApply record);
 
     int updateByPrimaryKey(FrieandApply record);
-
     public List<FrieandApply> findById(int currentid);
 
-    public int deleteByUidAndCurrentuid(@Param("uid") int uid,@Param("currentid") int currentid);
+    public int deleteByUidAndCurrentuid(int uid,int currentid);
 }
