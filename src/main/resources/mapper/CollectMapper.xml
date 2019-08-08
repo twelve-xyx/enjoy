@@ -8,11 +8,14 @@
     <result column="createtime" jdbcType="DATE" property="createtime" />
     <result column="uid" jdbcType="INTEGER" property="uid" />
   </resultMap>
+
+
+
   <sql id="Base_Column_List">
     cid, username, userpicture, createtime, uid
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from collect
     where cid = #{cid,jdbcType=INTEGER}
@@ -22,9 +25,9 @@
     where cid = #{cid,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.qf.pojo.Collect">
-    insert into collect (cid, username, userpicture, 
+    insert into collect (cid, username, userpicture,
       createtime, uid)
-    values (#{cid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{userpicture,jdbcType=VARCHAR}, 
+    values (#{cid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{userpicture,jdbcType=VARCHAR},
       #{createtime,jdbcType=DATE}, #{uid,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.qf.pojo.Collect">
