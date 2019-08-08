@@ -39,6 +39,16 @@ public class Users {
 
     private List<Dynamic> dynamicList;
 
+    private String graSchool;
+
+    public String getGraSchool() {
+        return graSchool;
+    }
+
+    public void setGraSchool(String graSchool) {
+        this.graSchool = graSchool;
+    }
+
     public List<Dynamic> getDynamicList() {
         return dynamicList;
     }

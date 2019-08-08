@@ -15,6 +15,7 @@
     <result column="distance" jdbcType="DOUBLE" property="distance" />
     <result column="state" jdbcType="INTEGER" property="state" />
     <result column="registertime" jdbcType="TIMESTAMP" property="registertime" />
+    <result column="graSchool" jdbcType="VARCHAR" property="graSchool"></result>
     <collection property="picturesList" ofType="com.qf.pojo.Pictures">
       <id column="pid" jdbcType="INTEGER" property="pid" />
       <result column="pname" jdbcType="VARCHAR" property="pname" />
@@ -233,6 +234,7 @@
     <result column="distance" jdbcType="DOUBLE" property="distance" />
     <result column="state" jdbcType="INTEGER" property="state" />
     <result column="registertime" jdbcType="TIMESTAMP" property="registertime" />
+    <result column="graSchool" jdbcType="VARCHAR" property="graSchool"></result>
   <collection property="lablesList" ofType="com.qf.pojo.Lables">
       <id column="lid" jdbcType="INTEGER" property="lid" />
       <result column="lname" jdbcType="VARCHAR" property="lname" />
@@ -270,6 +272,7 @@
     <result column="distance" jdbcType="DOUBLE" property="distance" />
     <result column="state" jdbcType="INTEGER" property="state" />
     <result column="registertime" jdbcType="TIMESTAMP" property="registertime" />
+    <result column="graSchool" jdbcType="VARCHAR" property="graSchool"></result>
     <collection property="lablesList" ofType="com.qf.pojo.Lables">
       <id column="lid" jdbcType="INTEGER" property="lid" />
       <result column="lname" jdbcType="VARCHAR" property="lname" />
