@@ -32,6 +32,16 @@ public class Users {
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date registertime;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date createtime;
+
+    public Date getCreatetime() {
+        return createtime;
+    }
+
+    public void setCreatetime(Date createtime) {
+        this.createtime = createtime;
+    }
 
     private List<Pictures> picturesList;
 

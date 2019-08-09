@@ -16,7 +16,6 @@ public class MyFunctionController {
     @Resource
     private UsersService usersServicel;
 
-/*
 //我的详细资料
     @RequestMapping("/user/userinformation")
     public Users myInfo(Users users){
@@ -49,5 +48,5 @@ public class MyFunctionController {
         return users;
 
 
-    }*/
+    }
 }
