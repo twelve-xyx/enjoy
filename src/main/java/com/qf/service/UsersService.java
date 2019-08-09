@@ -1,6 +1,8 @@
 package com.qf.service;
 
 import com.github.pagehelper.PageInfo;
+import com.qf.pojo.Dynamic;
+import com.qf.pojo.Friend;
 import com.qf.pojo.Friendlist;
 import com.qf.pojo.Users;
 
@@ -33,4 +35,13 @@ public interface UsersService {
 	public Users findById(int uid);
 
 	public List<Users> findByUsername(Map map);
+
+	//我的详细资料(主键查询用户表)
+	public Users getUsers(Users users);
+	//我的动态
+	public List<Dynamic> getDynamic(Dynamic dynamic);
+	//最近来访的id
+	public List<Friend> findFriend(Friend friend);
+	//最近来访的详细资料
+	public List<Users> findFriendMsg(List list);
 }
