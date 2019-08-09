@@ -3,7 +3,10 @@ package com.qf.service.Impl;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.qf.dao.FriendMapper;
 import com.qf.dao.UsersMapper;
+import com.qf.pojo.Dynamic;
+import com.qf.pojo.Friend;
 import com.qf.pojo.Friendlist;
 import com.qf.pojo.Users;
 import com.qf.service.UsersService;
@@ -22,7 +25,8 @@ public class UsersServiceImpl implements UsersService {
 
 	@Resource
 	private UsersMapper usersMapper;
-
+	@Resource
+	private FriendMapper friendMapper;
 
 	@Override
 	public int deleteByPrimaryKey(Integer uid) {
@@ -74,5 +78,25 @@ public class UsersServiceImpl implements UsersService {
 
 	public List<Users> findByUsername(Map map){
 		return usersMapper.findByUsername(map);
+	}
+
+	@Override
+	public Users getUsers(Users users) {
+		return usersMapper.selectUsersMsg(users);
+	}
+
+	@Override
+	public List<Dynamic> getDynamic(Dynamic dynamic) {
+		return usersMapper.findMyDynamic(dynamic);
+	}
+
+	@Override
+	public List<Friend> findFriend(Friend friend) {
+		return friendMapper.findFriend(friend);
+	}
+
+	@Override
+	public List<Users> findFriendMsg(List list) {
+		return usersMapper.findMsgByFriend(list);
 	}
 }
