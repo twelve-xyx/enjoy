@@ -22,7 +22,7 @@ public class PortratiController {
      * @param userid
      * @return
      */
-    @RequestMapping("getfriend")
+    @RequestMapping("/portrait/getfriend")
     @ResponseBody
     public Map<String,Object> getid(Integer userid){
         Map<String,Object> map = new HashMap<String, Object>();

@@ -58,7 +58,7 @@ public class DynamicController {
      * 查看所有动态
      * @return
      */
-    @RequestMapping("findall")
+    @RequestMapping("/dynamic/findall")
     @ResponseBody
     public List<Map<String,Object>> findall(){
         List<Map<String,Object>> mapList = new ArrayList<Map<String, Object>>();
@@ -105,7 +105,7 @@ public class DynamicController {
      * @param record
      * @return
      */
-    @RequestMapping("insert")
+    @RequestMapping("/dynamic/insert")
     @ResponseBody
         public Map<String,Object> insert(Dynamic record){
         Map map = new HashMap();
@@ -126,7 +126,7 @@ public class DynamicController {
      * @param userid
      * @return
      */
-    @RequestMapping("findbyid")
+    @RequestMapping("/dynamic/findbyid")
     @ResponseBody
     public List<Map<String,Object>> findbyid(Integer userid){
         List<Map<String,Object>> mapList = new ArrayList<Map<String, Object>>();
@@ -174,7 +174,7 @@ public class DynamicController {
      * @param userid
      * @return
      */
-    @RequestMapping("friend")
+    @RequestMapping("/dynamic/friend")
     @ResponseBody
     public List<Map<String,Object>> friend(Integer userid){
             List<Map<String,Object>> mapList = new ArrayList<Map<String, Object>>();
@@ -219,7 +219,7 @@ public class DynamicController {
     /**
      * 点赞：status为0执行点赞 为1 执行取消点赞
      */
-    @RequestMapping("dianzan")
+    @RequestMapping("/dynamic/dianzan")
     @ResponseBody
     public Map<String,Object> dianZan(Integer status , Integer dynamicId){
         return  dynamicService.dianZan(status,dynamicId);
