@@ -8,14 +8,13 @@
   <component name="ChangeListManager">
     <list default="true" id="24f05838-ab48-4359-a328-d9900074d27a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aaa.txt" beforeDir="false" afterPath="$PROJECT_DIR$/aaa.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qf/controller/MyFunctionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qf/controller/MyFunctionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dbinfo.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dbinfo.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/enjoy.kotlin_module" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/qf/controller/MyFunctionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/qf/controller/MyFunctionController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qf/pojo/Users.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/qf/pojo/Users.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/UsersMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/UsersMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/exam/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/exam/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dbinfo.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dbinfo.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/exam/WEB-INF/classes/com/qf/controller/MyFunctionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/exam/WEB-INF/classes/com/qf/controller/MyFunctionController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/exam/WEB-INF/classes/com/qf/pojo/Users.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/exam/WEB-INF/classes/com/qf/pojo/Users.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/exam/WEB-INF/classes/mapper/UsersMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/exam/WEB-INF/classes/mapper/UsersMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/exam/WEB-INF/classes/dbinfo.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/exam/WEB-INF/classes/dbinfo.properties" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -33,21 +32,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/qf/controller/MyFunctionController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="383">
-              <caret line="26" column="2" lean-forward="true" selection-start-line="26" selection-start-column="2" selection-end-line="26" selection-end-column="2" />
-              <folding>
-                <element signature="e#556#557#0" expanded="true" />
-                <element signature="e#608#609#0" expanded="true" />
-                <element signature="e#709#710#0" expanded="true" />
-                <element signature="e#765#766#0" expanded="true" />
-                <element signature="e#875#876#0" expanded="true" />
-                <element signature="e#931#932#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="81">
+              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/aaa.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state>
@@ -59,7 +50,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-5394">
+            <state relative-caret-position="432">
               <caret line="16" column="42" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
             </state>
           </provider>
@@ -84,11 +75,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/dbinfo.properties">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="81">
-              <caret line="3" column="37" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="37" />
+              <caret line="3" column="37" lean-forward="true" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -96,7 +87,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/qf/controller/FriendController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2295">
+            <state relative-caret-position="2727">
               <caret line="101" column="28" selection-start-line="101" selection-start-column="28" selection-end-line="101" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -134,7 +125,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/qf/service/UsersService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
+            <state relative-caret-position="54">
               <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -189,9 +180,9 @@
         <option value="$PROJECT_DIR$/src/main/java/com/qf/pojo/Users.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/qf/controller/DynamicController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/qf/dao/DynamicMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/dbinfo.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/com/qf/controller/MyFunctionController.java" />
         <option value="$PROJECT_DIR$/aaa.txt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/qf/controller/MyFunctionController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/dbinfo.properties" />
       </list>
     </option>
   </component>
@@ -237,9 +228,9 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="462" />
-    <option name="y" value="30" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="178" />
+    <option name="y" value="38" />
     <option name="width" value="1367" />
     <option name="height" value="977" />
   </component>
@@ -251,7 +242,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -373,6 +363,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -386,7 +377,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Documents/千峰/第四阶段/openapi" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../第四阶段/openapi" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -600,6 +591,7 @@
       <workItem from="1564965862781" duration="601000" />
       <workItem from="1564993897468" duration="14198000" />
       <workItem from="1565308370727" duration="4393000" />
+      <workItem from="1565323178220" duration="1243000" />
     </task>
     <task id="LOCAL-00001" summary="联合项目">
       <created>1564286469841</created>
@@ -703,13 +695,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55888000" />
+    <option name="totallyTimeSpent" value="57131000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="178" y="38" width="1367" height="977" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1663113" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24100995" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="JRebel" order="3" side_tool="true" />
@@ -720,7 +712,7 @@
       <window_info id="Web" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.31236443" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.31198102" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -735,8 +727,8 @@
       <window_info anchor="bottom" id="JRebel Executor" order="14" />
       <window_info anchor="bottom" id="JRebel Console" order="15" side_tool="true" />
       <window_info anchor="bottom" id="Application Servers" order="16" weight="0.3289183" />
-      <window_info anchor="bottom" id="Messages" order="17" weight="0.32964602" />
-      <window_info anchor="bottom" id="File Transfer" order="18" visible="true" weight="0.329718" />
+      <window_info anchor="bottom" id="Messages" order="17" weight="0.32858837" />
+      <window_info anchor="bottom" id="File Transfer" order="18" weight="0.28113878" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -997,6 +989,14 @@
     <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/FriendMapper.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="16" column="42" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
+        </state>
+      </provider>
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/FriendlistMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
@@ -1008,16 +1008,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
           <caret line="20" selection-start-line="20" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/qf/controller/FriendController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2295">
-          <caret line="101" column="28" selection-start-line="101" selection-start-column="28" selection-end-line="101" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1043,42 +1033,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/dbinfo.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="3" column="37" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/qf/service/UsersService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
+        <state relative-caret-position="54">
           <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5394">
-          <caret line="16" column="42" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
-        </state>
-      </provider>
-      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/qf/controller/MyFunctionController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="26" column="2" lean-forward="true" selection-start-line="26" selection-start-column="2" selection-end-line="26" selection-end-column="2" />
-          <folding>
-            <element signature="e#556#557#0" expanded="true" />
-            <element signature="e#608#609#0" expanded="true" />
-            <element signature="e#709#710#0" expanded="true" />
-            <element signature="e#765#766#0" expanded="true" />
-            <element signature="e#875#876#0" expanded="true" />
-            <element signature="e#931#932#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1087,6 +1047,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="5" selection-start-column="5" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/qf/controller/FriendController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2727">
+          <caret line="101" column="28" selection-start-line="101" selection-start-column="28" selection-end-line="101" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/qf/controller/MyFunctionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/dbinfo.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="3" column="37" lean-forward="true" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="37" />
         </state>
       </provider>
     </entry>
