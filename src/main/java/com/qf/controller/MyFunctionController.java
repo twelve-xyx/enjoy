@@ -1,8 +1,7 @@
 package com.qf.controller;
 
-import com.qf.pojo.Dynamic;
-import com.qf.pojo.Friend;
-import com.qf.pojo.Users;
+import com.qf.pojo.*;
+import com.qf.service.CollectService;
 import com.qf.service.UsersService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,6 +14,9 @@ import java.util.List;
 public class MyFunctionController {
     @Resource
     private UsersService usersServicel;
+    @Resource
+    private CollectService collectService;
+
 
 
 //我的详细资料
@@ -49,5 +51,23 @@ public class MyFunctionController {
         return users;
 
 
+    }
+    //新增标签
+    @RequestMapping("/user/addTag")
+    public String addTag(Lables lables){
+        String a="success";
+        String b="false";
+        int i=usersServicel.addTag(lables);
+        if (i!=0)
+            return a;
+        else
+            return b;
+
+    }
+
+    //收藏列表
+    @RequestMapping("/user/cellection")
+    public List<Collect> Collection(Collect collect){
+      return collectService.findOnesCollect(collect);
     }
 }
