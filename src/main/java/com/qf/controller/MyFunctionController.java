@@ -66,7 +66,7 @@ public class MyFunctionController {
     }
 
     //收藏列表
-    @RequestMapping("/user/cellection")
+    @RequestMapping("/user/collection")
     public List<Collect> Collection(Collect collect){
       return collectService.findOnesCollect(collect);
     }
