@@ -22,7 +22,7 @@ public class CommentsController {
      * @param uid
      * @return
      */
-    @RequestMapping("/comments/getcomm")
+    @RequestMapping("/dynamic/comments")
     @ResponseBody
     public Map<String,Object> getcomm(Integer uid){
         Map<String,Object> map = new HashMap<String, Object>();
