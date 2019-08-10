@@ -21,39 +21,6 @@ public class DynamicController {
     @Resource
     private PortraitService portraitService;
 
- /*   *//**
-     * 查看所有动态
-     * @return
-     *//*
-    @RequestMapping("findall")
-    @ResponseBody
-    public Map<String,Object> findall(){
-        Map map = new HashMap();
-        ArrayList<Dynamic> arrayList = new ArrayList();
-        arrayList = (ArrayList<Dynamic>) dynamicService.findall();
-
-        ArrayList<String> arrayList1 = new ArrayList();
-        for (Dynamic dynamic : arrayList) {
-            String dynamicimg = dynamic.getDynamicimg();
-            String[] split = dynamicimg.split(",");
-            for (String s : split) {
-                StringBuilder strb = new StringBuilder("http://localhost/imgs/");
-                String  strb1 = strb.append(s).toString();
-                arrayList1.add(strb1);
-            }
-        }
-        if (arrayList!=null&&arrayList.size()>0){
-            map.put("code",200);
-            map.put("msg","success");
-            map.put("findall",arrayList);
-            map.put("imgs", arrayList1);
-        }else{
-            map.put("code",500);
-            map.put("msg","failure");
-        }
-        return  map;
-    }*/
-
     /**
      * 查看所有动态
      * @return
