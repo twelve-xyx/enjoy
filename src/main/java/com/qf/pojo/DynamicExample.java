@@ -741,6 +741,126 @@ public class DynamicExample {
             addCriterionForJDBCDate("createtime not between", value1, value2, "createtime");
             return (Criteria) this;
         }
+
+        public Criteria andUpcountIsNull() {
+            addCriterion("upcount is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpcountIsNotNull() {
+            addCriterion("upcount is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpcountEqualTo(Integer value) {
+            addCriterion("upcount =", value, "upcount");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpcountNotEqualTo(Integer value) {
+            addCriterion("upcount <>", value, "upcount");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpcountGreaterThan(Integer value) {
+            addCriterion("upcount >", value, "upcount");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpcountGreaterThanOrEqualTo(Integer value) {
+            addCriterion("upcount >=", value, "upcount");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpcountLessThan(Integer value) {
+            addCriterion("upcount <", value, "upcount");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpcountLessThanOrEqualTo(Integer value) {
+            addCriterion("upcount <=", value, "upcount");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpcountIn(List<Integer> values) {
+            addCriterion("upcount in", values, "upcount");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpcountNotIn(List<Integer> values) {
+            addCriterion("upcount not in", values, "upcount");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpcountBetween(Integer value1, Integer value2) {
+            addCriterion("upcount between", value1, value2, "upcount");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpcountNotBetween(Integer value1, Integer value2) {
+            addCriterion("upcount not between", value1, value2, "upcount");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommcountIsNull() {
+            addCriterion("commcount is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommcountIsNotNull() {
+            addCriterion("commcount is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommcountEqualTo(Integer value) {
+            addCriterion("commcount =", value, "commcount");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommcountNotEqualTo(Integer value) {
+            addCriterion("commcount <>", value, "commcount");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommcountGreaterThan(Integer value) {
+            addCriterion("commcount >", value, "commcount");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommcountGreaterThanOrEqualTo(Integer value) {
+            addCriterion("commcount >=", value, "commcount");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommcountLessThan(Integer value) {
+            addCriterion("commcount <", value, "commcount");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommcountLessThanOrEqualTo(Integer value) {
+            addCriterion("commcount <=", value, "commcount");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommcountIn(List<Integer> values) {
+            addCriterion("commcount in", values, "commcount");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommcountNotIn(List<Integer> values) {
+            addCriterion("commcount not in", values, "commcount");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommcountBetween(Integer value1, Integer value2) {
+            addCriterion("commcount between", value1, value2, "commcount");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommcountNotBetween(Integer value1, Integer value2) {
+            addCriterion("commcount not between", value1, value2, "commcount");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

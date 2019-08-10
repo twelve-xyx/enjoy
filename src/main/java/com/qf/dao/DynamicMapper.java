@@ -5,8 +5,18 @@ import com.qf.pojo.DynamicExample;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 public interface DynamicMapper {
+
+    public Map<String,Object> dianZan(Integer status, Integer dynamicId);
+
+    public List<Dynamic> findall();
+
+    public List<Dynamic> findbyid(Integer userid);
+
+    public List<Dynamic> friend(Integer userid);
+
     int countByExample(DynamicExample example);
 
     int deleteByExample(DynamicExample example);

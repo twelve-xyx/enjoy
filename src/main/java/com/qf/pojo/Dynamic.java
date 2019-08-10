@@ -21,6 +21,10 @@ public class Dynamic {
 
     private Date createtime;
 
+    private int upcount;
+
+    private int commcount;
+
     public Integer getUid() {
         return uid;
     }
@@ -91,5 +95,38 @@ public class Dynamic {
 
     public void setCreatetime(Date createtime) {
         this.createtime = createtime;
+    }
+
+    public int getUpcount() {
+        return upcount;
+    }
+
+    public void setUpcount(int upcount) {
+        this.upcount = upcount;
+    }
+
+    public int getCommcount() {
+        return commcount;
+    }
+
+    public void setCommcount(int commcount) {
+        this.commcount = commcount;
+    }
+
+    @Override
+    public String toString() {
+        return "Dynamic{" +
+                "uid=" + uid +
+                ", head='" + head + '\'' +
+                ", username='" + username + '\'' +
+                ", sex='" + sex + '\'' +
+                ", address='" + address + '\'' +
+                ", professional='" + professional + '\'' +
+                ", dynamictext='" + dynamictext + '\'' +
+                ", dynamicimg='" + dynamicimg + '\'' +
+                ", createtime=" + createtime +
+                ", upcount=" + upcount +
+                ", commcount=" + commcount +
+                '}';
     }
 }
