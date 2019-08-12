@@ -1,5 +1,7 @@
 package com.qf.pojo;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 import java.util.List;
 
@@ -28,11 +30,32 @@ public class Users {
 
     private Integer state;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date registertime;
 
     private List<Pictures> picturesList;
 
     private List<Lables> lablesList;
+
+    private List<Dynamic> dynamicList;
+
+    private String graSchool;
+
+    public String getGraSchool() {
+        return graSchool;
+    }
+
+    public void setGraSchool(String graSchool) {
+        this.graSchool = graSchool;
+    }
+
+    public List<Dynamic> getDynamicList() {
+        return dynamicList;
+    }
+
+    public void setDynamicList(List<Dynamic> dynamicList) {
+        this.dynamicList = dynamicList;
+    }
 
     public List<Pictures> getPicturesList() {
         return picturesList;

@@ -1,13 +1,10 @@
 package com.qf.service;
 
-
-import com.qf.pojo.Dynamic;
-import com.qf.pojo.Friend;
-
-import com.qf.pojo.Users;
+import com.github.pagehelper.PageInfo;
+import com.qf.pojo.*;
 
 import java.util.List;
-
+import java.util.Map;
 
 /**
  * 半城烟雨半城沙,我在等风也等你
@@ -27,16 +24,27 @@ public interface UsersService {
 
 //	查询所有数据,用户信息+精选图片+个人标签
 //	三表联查
-	public Users findbyuid(int uid);
+	public List<Users> findall();
 
+	public PageInfo<Users> findAll(int index, int size );
+
+	//根据id查询用户全部信息
+	public Users findById(int uid);
+
+	public List<Users> findByUsername(Map map);
 
 	//我的详细资料(主键查询用户表)
-    public Users getUsers(Users users);
-    //我的动态
-    public List<Dynamic> getDynamic(Dynamic dynamic);
-    //最近来访的id
-    public List<Friend> findFriend(Friend friend);
-   //最近来访的详细资料
-    public List<Users> findFriendMsg(List list);
-
+	public Users getUsers(Users users);
+	//我的动态
+	public List<Dynamic> getDynamic(Dynamic dynamic);
+	//最近来访的id
+	public List<Friend> findFriend(Friend friend);
+	//最近来访的详细资料
+	public List<Users> findFriendMsg(List list);
+	//添加标签
+	public int addTag(Lables lables);
+	//修改标签
+	public int updateTag(Lables lables);
+	//删除标签
+	public int deleteTag(Lables lables);
 }

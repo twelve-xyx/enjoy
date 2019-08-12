@@ -15,6 +15,7 @@
     <result column="distance" jdbcType="DOUBLE" property="distance" />
     <result column="state" jdbcType="INTEGER" property="state" />
     <result column="registertime" jdbcType="TIMESTAMP" property="registertime" />
+    <result column="graSchool" jdbcType="VARCHAR" property="graSchool"></result>
     <collection property="picturesList" ofType="com.qf.pojo.Pictures">
       <id column="pid" jdbcType="INTEGER" property="pid" />
       <result column="pname" jdbcType="VARCHAR" property="pname" />
@@ -31,8 +32,25 @@
   </sql>
 
 
-  <select id="findbyuid" resultMap="BaseResultMap">
-    select * from users u,lables l,pictures p
+  <select id="findByUsername" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from users
+    where username like '%${username}%'
+  </select>
+
+  <select id="findAll" resultMap="BaseResultMap">
+        select * from users u,lables l,pictures p
+    where u.uid=l.uid and u.uid=p.uid
+  </select>
+
+  <select id="findall" resultMap="BaseResultMap">
+        select * from users u,lables l,pictures p
+    where u.uid=l.uid and u.uid=p.uid
+  </select>
+
+  <select id="findById" resultMap="BaseResultMap">
+        select * from users u,lables l,pictures p
     where u.uid=l.uid and u.uid=p.uid and u.uid=#{uid}
   </select>
 
@@ -183,6 +201,9 @@
       <if test="registertime != null">
         registertime = #{registertime,jdbcType=TIMESTAMP},
       </if>
+        <if test="graSchool != null">
+            graSchool = #{graSchool,jdbcType=VARCHAR},
+        </if>
     </set>
     where uid = #{uid,jdbcType=INTEGER}
   </update>
@@ -216,16 +237,23 @@
     <result column="distance" jdbcType="DOUBLE" property="distance" />
     <result column="state" jdbcType="INTEGER" property="state" />
     <result column="registertime" jdbcType="TIMESTAMP" property="registertime" />
+    <result column="graSchool" jdbcType="VARCHAR" property="graSchool"></result>
   <collection property="lablesList" ofType="com.qf.pojo.Lables">
       <id column="lid" jdbcType="INTEGER" property="lid" />
       <result column="lname" jdbcType="VARCHAR" property="lname" />
       <result column="uid" jdbcType="INTEGER" property="uid" />
   </collection>
+      <collection property="picturesList" ofType="com.qf.pojo.Pictures">
+          <id column="pid" jdbcType="INTEGER" property="pid" />
+          <result column="pname" jdbcType="VARCHAR" property="pname" />
+          <result column="paddress" jdbcType="VARCHAR" property="paddress" />
+          <result column="uid" jdbcType="INTEGER" property="uid" />
+      </collection>
   </resultMap>
 
 
   <select id="selectUsersMsg" resultMap="sUM">
-    select *from users,lables where users.uid=lables.uid and users.uid=#{uid}
+    select *from users,lables,pictures where users.uid=lables.uid and users.uid=#{uid} and pictures.uid=users.uid
   </select>
 
 
@@ -253,11 +281,35 @@
     <result column="distance" jdbcType="DOUBLE" property="distance" />
     <result column="state" jdbcType="INTEGER" property="state" />
     <result column="registertime" jdbcType="TIMESTAMP" property="registertime" />
+    <result column="graSchool" jdbcType="VARCHAR" property="graSchool"></result>
     <collection property="lablesList" ofType="com.qf.pojo.Lables">
       <id column="lid" jdbcType="INTEGER" property="lid" />
       <result column="lname" jdbcType="VARCHAR" property="lname" />
       <result column="uid" jdbcType="INTEGER" property="uid" />
     </collection>
+      <collection property="picturesList" ofType="com.qf.pojo.Pictures">
+          <id column="pid" jdbcType="INTEGER" property="pid" />
+          <result column="pname" jdbcType="VARCHAR" property="pname" />
+          <result column="paddress" jdbcType="VARCHAR" property="paddress" />
+          <result column="uid" jdbcType="INTEGER" property="uid" />
+      </collection>
   </resultMap>
-
+<insert id="insertTag" >
+   insert into lables ( lname, uid
+      )
+    values ( #{lname,jdbcType=VARCHAR}, #{uid,jdbcType=INTEGER}
+      )
+</insert>
+  <update id="updateTag">
+    update lables
+    <set>
+      <if test="lname != null">
+        lname = #{lname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where lid=#{lid,jdbcType=INTEGER}
+  </update>
+  <delete id="deleteTag">
+    delete from lables where lid=#{lid}
+  </delete>
 </mapper>

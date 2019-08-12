@@ -11,10 +11,10 @@ public class Test {
 
 
 	public static void main(String[] args) {
-		UsersService usersService=new UsersServiceImpl();
+		for (int i = 0; i < 100; i++) {
+			int j = (int) (1+Math.random() * (5));
+			System.out.println(j);
+		}
 
-		Users users = usersService.selectByPrimaryKey(1);
-
-		System.out.println(users.toString());
 	}
 }
