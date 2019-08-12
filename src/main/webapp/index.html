@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+
+        var websocket = null;
+
+        function connectionWebSocket(){
+
+            var name  = document.getElementById("me").value;
+
+            if("WebSocket" in window){//支持websocket
+                var  url  = "ws://"+document.location.host+"/websocket/"+name;
+                console.log(url);
+                websocket = new WebSocket(url);//"/websocket/{name}"
+            }else{
+                alert('当前浏览器不支持WebSocket');
+            }
+
+            //回调方法
+            websocket.onmessage=function(event){
+                var data = event.data;
+                console.log(data);
+
+                setMsg(data);
+            }
+
+            websocket.onerror=function(){
+                setMsg("websocket连接异常");
+            }
+            websocket.onclose=function(){
+                setMsg("websocket关闭");
+            }
+             websocket.onopen=function(){
+                 setMsg("websocket已连接");
+             }
+
+        }
+
+        function setMsg(data){
+            document.getElementById("msg").innerHTML = data;
+        }
+
+        function sendMsg(){
+            //得到接消息的用户名 和  内容
+            var  toName  = document.getElementById("toName").value;
+            var content = document.getElementById("neirong").value;
+
+            if (websocket!=null){
+                var json = '{"toName":"'+toName+'","content":"'+content.trim()+'"}';
+
+                websocket.send(json);
+            }else{
+                alert("请先链接websocket");
+            }
+
+
+        }
+
+    </script>
+</head>
+<body>
+
+   请输入您用户名： <input type="text" id="me"><button onclick="connectionWebSocket()">连接</button>
+    <hr>
+  发给谁：<input id="toName">
+   <br>
+  内容:
+        <textarea id="neirong" rows="10" cols="40" >
+
+        </textarea>
+   <br>
+    <button onclick="sendMsg()">发送</button>
+    <br>
+   <!--回显接到的消息-->
+    <div id="msg" style="color: red;"></div>
+
+</body>
+</html>
