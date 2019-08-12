@@ -202,6 +202,9 @@
       <if test="registertime != null">
         registertime = #{registertime,jdbcType=TIMESTAMP},
       </if>
+        <if test="graSchool != null">
+            graSchool = #{graSchool,jdbcType=VARCHAR},
+        </if>
     </set>
     where uid = #{uid,jdbcType=INTEGER}
   </update>
@@ -241,11 +244,17 @@
       <result column="lname" jdbcType="VARCHAR" property="lname" />
       <result column="uid" jdbcType="INTEGER" property="uid" />
   </collection>
+      <collection property="picturesList" ofType="com.qf.pojo.Pictures">
+          <id column="pid" jdbcType="INTEGER" property="pid" />
+          <result column="pname" jdbcType="VARCHAR" property="pname" />
+          <result column="paddress" jdbcType="VARCHAR" property="paddress" />
+          <result column="uid" jdbcType="INTEGER" property="uid" />
+      </collection>
   </resultMap>
 
 
   <select id="selectUsersMsg" resultMap="sUM">
-    select *from users,lables where users.uid=lables.uid and users.uid=#{uid}
+    select *from users,lables,pictures where users.uid=lables.uid and users.uid=#{uid} and pictures.uid=users.uid
   </select>
 
 
@@ -279,6 +288,29 @@
       <result column="lname" jdbcType="VARCHAR" property="lname" />
       <result column="uid" jdbcType="INTEGER" property="uid" />
     </collection>
+      <collection property="picturesList" ofType="com.qf.pojo.Pictures">
+          <id column="pid" jdbcType="INTEGER" property="pid" />
+          <result column="pname" jdbcType="VARCHAR" property="pname" />
+          <result column="paddress" jdbcType="VARCHAR" property="paddress" />
+          <result column="uid" jdbcType="INTEGER" property="uid" />
+      </collection>
   </resultMap>
-
+<insert id="insertTag" >
+   insert into lables ( lname, uid
+      )
+    values ( #{lname,jdbcType=VARCHAR}, #{uid,jdbcType=INTEGER}
+      )
+</insert>
+  <update id="updateTag">
+    update lables
+    <set>
+      <if test="lname != null">
+        lname = #{lname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where lid=#{lid,jdbcType=INTEGER}
+  </update>
+  <delete id="deleteTag">
+    delete from lables where lid=#{lid}
+  </delete>
 </mapper>
