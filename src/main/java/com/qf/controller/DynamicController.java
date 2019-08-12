@@ -5,10 +5,17 @@ import com.qf.service.DynamicService;
 import com.qf.service.PortraitService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -74,18 +81,42 @@ public class DynamicController {
      */
     @RequestMapping("/dynamic/release")
     @ResponseBody
-        public Map<String,Object> insert(Dynamic record){
-        Map map = new HashMap();
-        int i = dynamicService.insert(record);
-        System.out.println(i);
-        if(i>0){
-            map.put("code",200);
-            map.put("msg","success")                                                                   ;
-        }else{
-            map.put("code",500);
-            map.put("msg","failure");
+    public Map<String,Object> insert(Dynamic record, MultipartFile[] tupian, HttpServletRequest request){
+        try {
+            Map map = new HashMap();
+            StringBuilder stringBuilder = new StringBuilder();
+            if(tupian!=null&&tupian.length>0){
+                for (int i = 0;i<tupian.length;i++) {
+                    String fileName = tupian[i].getOriginalFilename();
+                    if(i<tupian.length-1){
+                        stringBuilder.append(fileName+",");
+                    }else {
+                        stringBuilder.append(fileName);
+                    }
+                    String dir = request.getServletContext().getRealPath("/upload");
+                    File dirFile = new File(dir);
+                    if(dirFile.exists() == false)dirFile.mkdirs();
+                    String relativePath = "/upload/" + fileName;;
+                    String totalPath = request.getServletContext().getRealPath(relativePath);
+                    File newFile = new File(totalPath);
+                    FileCopyUtils.copy(tupian[i].getInputStream(), new FileOutputStream(newFile));
+                }
+            }
+            String str = stringBuilder.toString();
+            record.setDynamicimg(str);
+            int i = dynamicService.insert(record);
+            if(i>0){
+                map.put("code",200);
+                map.put("msg","success")                                                                   ;
+            }else{
+                map.put("code",500);
+                map.put("msg","failure");
+            }
+            return map;
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        return map;
+        return null;
     }
 
     /**
