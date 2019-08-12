@@ -36,4 +36,8 @@ public interface UsersMapper {
     List<Users> findMsgByFriend(List<Friend> list);
     //新增标签
     int insertTag(Lables lables);
+    //修改标签
+    int updateTag(Lables lables);
+    //删除标签
+    int deleteTag(Lables lables);
 }

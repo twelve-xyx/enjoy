@@ -47,12 +47,12 @@ public class UsersServiceImpl implements UsersService {
 
 	@Override
 	public int updateByPrimaryKeySelective(Users record) {
-		return 0;
+		return usersMapper.updateByPrimaryKeySelective(record);
 	}
 
 	@Override
 	public int updateByPrimaryKey(Users record) {
-		return 0;
+		return usersMapper.updateByPrimaryKey(record);
 	}
 
 	@Override
@@ -100,5 +100,15 @@ public class UsersServiceImpl implements UsersService {
 	@Override
 	public int addTag(Lables lables) {
 		return usersMapper.insertTag(lables);
+	}
+
+	@Override
+	public int updateTag(Lables lables) {
+		return usersMapper.updateTag(lables);
+	}
+
+	@Override
+	public int deleteTag(Lables lables) {
+		return usersMapper.deleteTag(lables);
 	}
 }

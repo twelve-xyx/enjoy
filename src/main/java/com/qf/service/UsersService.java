@@ -43,4 +43,8 @@ public interface UsersService {
 	public List<Users> findFriendMsg(List list);
 	//添加标签
 	public int addTag(Lables lables);
+	//修改标签
+	public int updateTag(Lables lables);
+	//删除标签
+	public int deleteTag(Lables lables);
 }
