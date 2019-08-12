@@ -91,4 +91,13 @@ public class MyFunctionController {
         else
             return b;
     }
+    //修改个人资料
+    @RequestMapping("/user/updateUserInformation")
+    public String updateUserInformation(Users users){
+        int i=usersServicel.updateByPrimaryKeySelective(users);
+        if (i!=0)
+            return a;
+        else
+            return b;
+    }
 }
