@@ -16,6 +16,8 @@ public class MyFunctionController {
     private UsersService usersServicel;
     @Resource
     private CollectService collectService;
+    String a="success";
+    String b="false";
 
 
 
@@ -55,8 +57,7 @@ public class MyFunctionController {
     //新增标签
     @RequestMapping("/user/addTag")
     public String addTag(Lables lables){
-        String a="success";
-        String b="false";
+
         int i=usersServicel.addTag(lables);
         if (i!=0)
             return a;
@@ -69,5 +70,25 @@ public class MyFunctionController {
     @RequestMapping("/user/collection")
     public List<Collect> Collection(Collect collect){
       return collectService.findOnesCollect(collect);
+    }
+    //修改标签
+    @RequestMapping("/user/updateTag")
+    public String updateTag(Lables lables){
+        int i=usersServicel.updateTag(lables);
+        if(i!=0)
+            return a;
+        else
+            return b;
+
+    }
+    //删除标签
+    @RequestMapping("/user/deleteTag")
+    public String deleteTag(Lables lables)
+    {
+        int i=usersServicel.deleteTag(lables);
+        if(i!=0)
+            return a;
+        else
+            return b;
     }
 }
