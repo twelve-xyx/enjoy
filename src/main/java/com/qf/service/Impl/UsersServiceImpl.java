@@ -101,4 +101,14 @@ public class UsersServiceImpl implements UsersService {
 	public int addTag(Lables lables) {
 		return usersMapper.insertTag(lables);
 	}
+
+	@Override
+	public int updateTag(Lables lables) {
+		return usersMapper.updateTag(lables);
+	}
+
+	@Override
+	public int deleteTag(Lables lables) {
+		return usersMapper.deleteTag(lables);
+	}
 }
