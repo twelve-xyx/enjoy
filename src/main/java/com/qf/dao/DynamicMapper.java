@@ -2,6 +2,7 @@ package com.qf.dao;
 
 import com.qf.pojo.Dynamic;
 import com.qf.pojo.DynamicExample;
+import com.qf.pojo.Users;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -40,4 +41,6 @@ public interface DynamicMapper {
     int updateByPrimaryKey(Dynamic record);
 
     public List<Dynamic> indexFindByUid();
+
+    List<Dynamic> findallDynamic(int userid);
 }

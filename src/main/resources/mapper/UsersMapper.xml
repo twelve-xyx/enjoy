@@ -26,6 +26,17 @@
       <id column="lid" jdbcType="INTEGER" property="lid" />
       <result column="lname" jdbcType="VARCHAR" property="lname" />
     </collection>
+    <collection property="dynamicList" ofType="com.qf.pojo.Dynamic">
+      <id column="uid" property="uid" jdbcType="INTEGER" />
+      <result column="head" property="head" jdbcType="VARCHAR" />
+      <result column="username" property="username" jdbcType="VARCHAR" />
+      <result column="sex" property="sex" jdbcType="VARCHAR" />
+      <result column="address" property="address" jdbcType="VARCHAR" />
+      <result column="professional" property="professional" jdbcType="VARCHAR" />
+      <result column="dynamicText" property="dynamictext" jdbcType="VARCHAR" />
+      <result column="dynamicImg" property="dynamicimg" jdbcType="VARCHAR" />
+      <result column="createtime" property="createtime" jdbcType="DATE" />
+    </collection>
   </resultMap>
   <sql id="Base_Column_List">
     uid, username, uname, uphone, sex, profession, address, password, age, userpicture,
@@ -49,6 +60,9 @@
         select * from users u,lables l,pictures p
     where u.uid=l.uid and u.uid=p.uid
   </select>
+
+
+
 
   <select id="findById" resultMap="BaseResultMap">
         select * from users u,lables l,pictures p

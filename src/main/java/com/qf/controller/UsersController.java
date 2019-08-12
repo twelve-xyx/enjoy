@@ -1,7 +1,9 @@
 package com.qf.controller;
 
 import com.github.pagehelper.PageInfo;
+import com.qf.pojo.Dynamic;
 import com.qf.pojo.Users;
+import com.qf.service.DynamicService;
 import com.qf.service.UsersService;
 import com.qf.util.DataView;
 import net.sf.jsqlparser.expression.DateValue;
@@ -21,6 +23,8 @@ public class UsersController {
 	@Resource
 	private UsersService usersService;
 
+	@Resource
+	private DynamicService dynamicService;
 
 	/**
 	 *  首页显示所有信息,分页24页,默认第一页
@@ -29,6 +33,10 @@ public class UsersController {
 	@GetMapping("/index/findall")
 	public Map<String,Object> findall(){
 		List<Users> users = usersService.findall();
+		for (Users user : users) {
+			List<Dynamic> dynamics = dynamicService.findallDynamic(user.getUid());
+			user.setDynamicList(dynamics);
+		}
 		Map map=new HashMap();
 		map.put("code",1);
 		map.put("msg","成功");
@@ -48,6 +56,8 @@ public class UsersController {
 		int size = users.size();
 		int id = (int) (1+Math.random() * size);
 		Users user = usersService.findById(id);
+		List<Dynamic> dynamics = dynamicService.findallDynamic(user.getUid());
+		user.setDynamicList(dynamics);
 		Map map=new HashMap();
 		map.put("code",1);
 		map.put("msg","成功");

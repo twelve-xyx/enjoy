@@ -40,4 +40,7 @@ public interface UsersMapper {
     int updateTag(Lables lables);
     //删除标签
     int deleteTag(Lables lables);
+
+
+
 }

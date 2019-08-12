@@ -47,4 +47,6 @@ public interface UsersService {
 	public int updateTag(Lables lables);
 	//删除标签
 	public int deleteTag(Lables lables);
+
+
 }

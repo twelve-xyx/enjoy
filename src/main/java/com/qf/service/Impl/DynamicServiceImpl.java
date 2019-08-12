@@ -61,5 +61,9 @@ public class DynamicServiceImpl implements DynamicService {
         return dynamicMapper.friend(userid);
     }
 
+    @Override
+    public List<Dynamic> findallDynamic(int userid) {
+        return dynamicMapper.findallDynamic(userid);
+    }
 
 }

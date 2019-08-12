@@ -16,4 +16,6 @@ public interface DynamicService {
     public List<Dynamic> findbyid(Integer userid);
 
     public List<Dynamic> friend(Integer userid);
+
+    List<Dynamic> findallDynamic(int userid);
 }
