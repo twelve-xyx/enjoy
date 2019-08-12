@@ -9,7 +9,9 @@
     <result column="uid" jdbcType="INTEGER" property="uid" />
   </resultMap>
 
-
+<select id="findOnesCollect" resultType="com.qf.pojo.Collect">
+  select *from collect where uid=#{uid}
+</select>
 
   <sql id="Base_Column_List">
     cid, username, userpicture, createtime, uid

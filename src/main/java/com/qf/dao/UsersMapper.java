@@ -1,9 +1,6 @@
 package com.qf.dao;
 
-import com.qf.pojo.Dynamic;
-import com.qf.pojo.Friend;
-import com.qf.pojo.Friendlist;
-import com.qf.pojo.Users;
+import com.qf.pojo.*;
 
 import java.util.List;
 import java.util.Map;
@@ -37,4 +34,6 @@ public interface UsersMapper {
     List<Dynamic> findMyDynamic(Dynamic dynamic);
     //最近访问
     List<Users> findMsgByFriend(List<Friend> list);
+    //新增标签
+    int insertTag(Lables lables);
 }

@@ -6,6 +6,7 @@ import com.qf.service.CollectService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * 半城烟雨半城沙,我在等风也等你
@@ -44,5 +45,10 @@ public class CollectServiceImpl implements CollectService {
 	@Override
 	public int updateByPrimaryKey(Collect record) {
 		return 0;
+	}
+
+	@Override
+	public List<Collect> findOnesCollect(Collect collect) {
+		return collectMapper.findOnesCollect(collect);
 	}
 }

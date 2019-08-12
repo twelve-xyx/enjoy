@@ -5,7 +5,7 @@
       <paths name="腾讯云服务器">
         <serverdata>
           <mappings>
-            <mapping deploy="/enjoy" local="$USER_HOME$/Documents/千峰/联合项目/enjoy" web="/" />
+            <mapping local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>

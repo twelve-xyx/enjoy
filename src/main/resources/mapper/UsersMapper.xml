@@ -280,5 +280,10 @@
       <result column="uid" jdbcType="INTEGER" property="uid" />
     </collection>
   </resultMap>
-
+<insert id="insertTag" >
+   insert into lables ( lname, uid
+      )
+    values ( #{lname,jdbcType=VARCHAR}, #{uid,jdbcType=INTEGER}
+      )
+</insert>
 </mapper>

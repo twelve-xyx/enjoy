@@ -5,10 +5,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.qf.dao.FriendMapper;
 import com.qf.dao.UsersMapper;
-import com.qf.pojo.Dynamic;
-import com.qf.pojo.Friend;
-import com.qf.pojo.Friendlist;
-import com.qf.pojo.Users;
+import com.qf.pojo.*;
 import com.qf.service.UsersService;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -98,5 +95,10 @@ public class UsersServiceImpl implements UsersService {
 	@Override
 	public List<Users> findFriendMsg(List list) {
 		return usersMapper.findMsgByFriend(list);
+	}
+
+	@Override
+	public int addTag(Lables lables) {
+		return usersMapper.insertTag(lables);
 	}
 }
