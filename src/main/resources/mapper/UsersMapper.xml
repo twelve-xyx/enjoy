@@ -285,4 +285,16 @@
     values ( #{lname,jdbcType=VARCHAR}, #{uid,jdbcType=INTEGER}
       )
 </insert>
+  <update id="updateTag">
+    update lables
+    <set>
+      <if test="lname != null">
+        lname = #{lname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where lid=#{lid,jdbcType=INTEGER}
+  </update>
+  <delete id="deleteTag">
+    delete from lables where lid=#{lid}
+  </delete>
 </mapper>
