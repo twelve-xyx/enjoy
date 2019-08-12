@@ -11,10 +11,9 @@ public class Test {
 
 
 	public static void main(String[] args) {
-		for (int i = 0; i < 100; i++) {
-			int j = (int) (1+Math.random() * (5));
-			System.out.println(j);
-		}
+		UsersService usersService=new UsersServiceImpl();
+		Users users = usersService.findById(1);
+		System.out.println(users.getUsername());
 
 	}
 }

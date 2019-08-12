@@ -5,9 +5,7 @@ import com.qf.pojo.Users;
 import com.qf.service.UsersService;
 import com.qf.util.DataView;
 import net.sf.jsqlparser.expression.DateValue;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import javax.annotation.Resource;
@@ -17,7 +15,7 @@ import java.util.*;
 /**
  * 半城烟雨半城沙,我在等风也等你
  */
-@Controller
+@RestController
 public class UsersController {
 
 	@Resource
@@ -26,14 +24,11 @@ public class UsersController {
 
 	/**
 	 *  首页显示所有信息,分页24页,默认第一页
-	 * @param index
 	 * @return
 	 */
-	@RequestMapping("/index/findall")
-	@ResponseBody
-	public Map<String,Object> findall(@RequestParam(defaultValue = "1") int index){
-		PageInfo<Users> pageInfo = usersService.findAll(index, 24);
-		List<Users> users = pageInfo.getList();
+	@GetMapping("/index/findall")
+	public Map<String,Object> findall(){
+		List<Users> users = usersService.findall();
 		Map map=new HashMap();
 		map.put("code",1);
 		map.put("msg","成功");
@@ -48,7 +43,6 @@ public class UsersController {
 	 * @return
 	 */
 	@RequestMapping("/index/findone")
-	@ResponseBody
 	public Map CountUsers(){
 		List<Users> users = usersService.findall();
 		int size = users.size();
