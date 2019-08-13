@@ -9,15 +9,6 @@ import java.util.List;
 import java.util.Map;
 
 public interface DynamicMapper {
-
-    public Map<String,Object> dianZan(Integer status, Integer dynamicId);
-
-    public List<Dynamic> findall();
-
-    public List<Dynamic> findbyid(Integer userid);
-
-    public List<Dynamic> friend(Integer userid);
-
     int countByExample(DynamicExample example);
 
     int deleteByExample(DynamicExample example);
@@ -39,6 +30,15 @@ public interface DynamicMapper {
     int updateByPrimaryKeySelective(Dynamic record);
 
     int updateByPrimaryKey(Dynamic record);
+
+    List<Dynamic> findall();
+
+    List<Dynamic> findbyid(Integer userid);
+
+    List<Dynamic> friend(Integer userid);
+    void dynamiduserid(@Param(value = "dyid")   Integer dyid,@Param(value = "userid")   Integer userid);
+
+    Map<String,Object> dianZan(Integer status, Integer dynamicId);
 
     public List<Dynamic> indexFindByUid();
 

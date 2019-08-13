@@ -7,9 +7,6 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 public interface CommentsMapper {
-
-    List<Comments> getcomm(Integer uid);
-
     int countByExample(CommentsExample example);
 
     int deleteByExample(CommentsExample example);
@@ -31,4 +28,8 @@ public interface CommentsMapper {
     int updateByPrimaryKeySelective(Comments record);
 
     int updateByPrimaryKey(Comments record);
+
+    List<Comments> getcomm(Integer uid);
+
+    void commdy(@Param(value = "dynamicid") Integer dynamicid, @Param(value = "commentsid") Integer commentsid);
 }

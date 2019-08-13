@@ -5,56 +5,44 @@ import java.util.Date;
 public class Dynamic {
     private Integer uid;
 
-    private String head;
-
-    private String username;
-
-    private String sex;
-
-    private String address;
-
-    private String professional;
-
     private String dynamictext;
 
     private String dynamicimg;
 
     private Date createtime;
 
-    private int upcount;
+    private Integer upcount;
 
-    private int commcount;
+    private Integer commentcount;
 
-    public Integer getUid() {
-        return uid;
-    }
-
-    public void setUid(Integer uid) {
-        this.uid = uid;
-    }
-
-    public String getHead() {
-        return head;
-    }
-
-    public void setHead(String head) {
-        this.head = head == null ? null : head.trim();
-    }
+    private String username;
+    private Integer sex;
+    private String profession;
+    private String address;
+    private String userpicture;
 
     public String getUsername() {
         return username;
     }
 
     public void setUsername(String username) {
-        this.username = username == null ? null : username.trim();
+        this.username = username;
     }
 
-    public String getSex() {
+    public Integer getSex() {
         return sex;
     }
 
-    public void setSex(String sex) {
-        this.sex = sex == null ? null : sex.trim();
+    public void setSex(Integer sex) {
+        this.sex = sex;
+    }
+
+    public String getProfession() {
+        return profession;
+    }
+
+    public void setProfession(String profession) {
+        this.profession = profession;
     }
 
     public String getAddress() {
@@ -62,15 +50,23 @@ public class Dynamic {
     }
 
     public void setAddress(String address) {
-        this.address = address == null ? null : address.trim();
+        this.address = address;
     }
 
-    public String getProfessional() {
-        return professional;
+    public String getUserpicture() {
+        return userpicture;
     }
 
-    public void setProfessional(String professional) {
-        this.professional = professional == null ? null : professional.trim();
+    public void setUserpicture(String userpicture) {
+        this.userpicture = userpicture;
+    }
+
+    public Integer getUid() {
+        return uid;
+    }
+
+    public void setUid(Integer uid) {
+        this.uid = uid;
     }
 
     public String getDynamictext() {
@@ -97,36 +93,19 @@ public class Dynamic {
         this.createtime = createtime;
     }
 
-    public int getUpcount() {
+    public Integer getUpcount() {
         return upcount;
     }
 
-    public void setUpcount(int upcount) {
+    public void setUpcount(Integer upcount) {
         this.upcount = upcount;
     }
 
-    public int getCommcount() {
-        return commcount;
+    public Integer getCommentcount() {
+        return commentcount;
     }
 
-    public void setCommcount(int commcount) {
-        this.commcount = commcount;
-    }
-
-    @Override
-    public String toString() {
-        return "Dynamic{" +
-                "uid=" + uid +
-                ", head='" + head + '\'' +
-                ", username='" + username + '\'' +
-                ", sex='" + sex + '\'' +
-                ", address='" + address + '\'' +
-                ", professional='" + professional + '\'' +
-                ", dynamictext='" + dynamictext + '\'' +
-                ", dynamicimg='" + dynamicimg + '\'' +
-                ", createtime=" + createtime +
-                ", upcount=" + upcount +
-                ", commcount=" + commcount +
-                '}';
+    public void setCommentcount(Integer commentcount) {
+        this.commentcount = commentcount;
     }
 }

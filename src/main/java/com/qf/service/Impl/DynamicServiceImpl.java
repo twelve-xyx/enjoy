@@ -18,6 +18,44 @@ public class DynamicServiceImpl implements DynamicService {
     private DynamicMapper dynamicMapper;
 
     /**
+     * 查看所有动态
+     * @return
+     */
+    public List<Dynamic> findall() {
+        return dynamicMapper.findall();
+    }
+
+    /**
+     *查看个人动态
+     * @param userid
+     * @return
+     */
+    public List<Dynamic> findbyid(Integer userid) {
+        return dynamicMapper.findbyid(userid);
+    }
+
+    /**
+     * 查看好友动态
+     * @param userid
+     * @return
+     */
+    public List<Dynamic> friend(Integer userid) {
+        return dynamicMapper.friend(userid);
+    }
+
+    /**
+     * 发布动态
+     * @param record
+     * @return
+     */
+    public int insert(Dynamic record) {
+        return dynamicMapper.insert(record);
+    }
+    public void dynamiduserid(Integer dyid, Integer userid) {
+        dynamicMapper.dynamiduserid(dyid,userid);
+    }
+
+    /**
      * 点赞
      * status为0执行点赞 status为1 执行取消点赞
      * @param status
@@ -41,24 +79,6 @@ public class DynamicServiceImpl implements DynamicService {
         map.put("msg","操作成功");
         map.put("upcount",dynamic.getUpcount());
         return map;
-    }
-
-    public List<Dynamic> findall() {
-        DynamicExample dynamicExample = new DynamicExample();
-        List<Dynamic> dynamics = dynamicMapper.selectByExample(dynamicExample);
-        return dynamics;
-    }
-
-    public int insert(Dynamic record) {
-        return dynamicMapper.insert(record);
-    }
-
-    public List<Dynamic> findbyid(Integer userid) {
-        return dynamicMapper.findbyid(userid);
-    }
-
-    public List<Dynamic> friend(Integer userid) {
-        return dynamicMapper.friend(userid);
     }
 
     @Override

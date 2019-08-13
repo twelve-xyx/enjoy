@@ -30,39 +30,47 @@ public class DynamicController {
 
     /**
      * 查看所有动态
+     * @param request
      * @return
      */
     @RequestMapping("/dynamic/show")
     @ResponseBody
-    public List<Map<String,Object>> findall(){
+    public List<Map<String,Object>> findall(HttpServletRequest request){
         List<Map<String,Object>> mapList = new ArrayList<Map<String, Object>>();
         Map<String,Object> map = null;
         ArrayList<Dynamic> arrayList = new ArrayList();
         arrayList = (ArrayList<Dynamic>) dynamicService.findall();
         if (arrayList!=null&&arrayList.size()>0){
             for (Dynamic dynamic : arrayList) {
-                 map = new HashMap();
+                map = new HashMap();
                 ArrayList<String> arrayList1 = new ArrayList();
                 String dynamicimg = dynamic.getDynamicimg();
                 if (!StringUtils.isBlank(dynamicimg)){
                     String[] split = dynamicimg.split(",");
                     for (String s : split) {
-                        StringBuilder strb = new StringBuilder("http://localhost/imgs/");
+                        StringBuilder strb = new StringBuilder(request.getScheme() + "://" + request.getServerName()+ ":" + request.getServerPort()+"/upload/");
                         String  strb1 = strb.append(s).toString();
                         arrayList1.add(strb1);
                     }
                     map.put("dynamicimg",arrayList1);
                 }
                 map.put("uid",dynamic.getUid());
-                map.put("head",dynamic.getHead());
+                map.put("head",dynamic.getUserpicture());
                 map.put("username",dynamic.getUsername());
                 map.put("sex",dynamic.getSex());
                 map.put("address",dynamic.getAddress());
-                map.put("professional",dynamic.getProfessional());
+                map.put("professional",dynamic.getProfession());
                 map.put("dynamictext",dynamic.getDynamictext());
                 map.put("createtime",dynamic.getCreatetime());
                 map.put("upcount",dynamic.getUpcount());
-                map.put("commcount",dynamic.getCommcount());
+                map.put("commcount",dynamic.getCommentcount());
+
+
+
+                Map map2  = new HashMap<String,Object>();
+                map2.put("code",200);
+                map2.put("msg","success");
+                mapList.add(map2);
                 mapList.add(map);
             }
         }else{
@@ -74,6 +82,100 @@ public class DynamicController {
         return  mapList;
     }
 
+    /**
+     * 查看个人动态
+     * @param userid
+     * @return
+     */
+    @RequestMapping("/dynamic/findbyid")
+    @ResponseBody
+    public List<Map<String,Object>> findbyid(Integer userid ,HttpServletRequest request){
+        List<Map<String,Object>> mapList = new ArrayList<Map<String, Object>>();
+        Map<String,Object> map = null;
+        ArrayList<Dynamic> arrayList = new ArrayList();
+        arrayList = (ArrayList<Dynamic>) dynamicService.findbyid(userid);
+        if (arrayList!=null&&arrayList.size()>0){
+            for (Dynamic dynamic : arrayList) {
+                map = new HashMap();
+                ArrayList<String> arrayList1 = new ArrayList();
+                String dynamicimg = dynamic.getDynamicimg();
+                if (!StringUtils.isBlank(dynamicimg)){
+                    String[] split = dynamicimg.split(",");
+                    for (String s : split) {
+                        StringBuilder strb = new StringBuilder(request.getScheme() + "://" + request.getServerName()+ ":" + request.getServerPort()+"/upload/");
+                        String  strb1 = strb.append(s).toString();
+                        arrayList1.add(strb1);
+                    }
+                    map.put("dynamicimg",arrayList1);
+                }
+                map.put("uid",dynamic.getUid());
+                map.put("head",dynamic.getUserpicture());
+                map.put("username",dynamic.getUsername());
+                map.put("sex",dynamic.getSex());
+                map.put("address",dynamic.getAddress());
+                map.put("professional",dynamic.getProfession());
+                map.put("dynamictext",dynamic.getDynamictext());
+                map.put("createtime",dynamic.getCreatetime());
+                map.put("upcount",dynamic.getUpcount());
+                map.put("commcount",dynamic.getCommentcount());
+                mapList.add(map);
+            }
+        }else{
+            map = new HashMap();
+            map.put("code",500);
+            map.put("msg","failure");
+            mapList.add(map);
+        }
+        return  mapList;
+
+    }
+
+    /**
+     * 查看好友动态
+     * @param userid
+     * @return
+     */
+    @RequestMapping("/dynamic/friend")
+    @ResponseBody
+    public List<Map<String,Object>> friend(Integer userid,HttpServletRequest request){
+        List<Map<String,Object>> mapList = new ArrayList<Map<String, Object>>();
+        Map<String,Object> map = null;
+        ArrayList<Dynamic> arrayList = new ArrayList();
+        arrayList = (ArrayList<Dynamic>) dynamicService.friend(userid);
+        if (arrayList!=null&&arrayList.size()>0){
+            for (Dynamic dynamic : arrayList) {
+                map = new HashMap();
+                ArrayList<String> arrayList1 = new ArrayList();
+                String dynamicimg = dynamic.getDynamicimg();
+                if (!StringUtils.isBlank(dynamicimg)){
+                    String[] split = dynamicimg.split(",");
+                    for (String s : split) {
+                        StringBuilder strb = new StringBuilder(request.getScheme() + "://" + request.getServerName()+ ":" + request.getServerPort()+"/upload/");
+                        String  strb1 = strb.append(s).toString();
+                        arrayList1.add(strb1);
+                    }
+                    map.put("dynamicimg",arrayList1);
+                }
+                map.put("uid",dynamic.getUid());
+                map.put("head",dynamic.getUserpicture());
+                map.put("username",dynamic.getUsername());
+                map.put("sex",dynamic.getSex());
+                map.put("address",dynamic.getAddress());
+                map.put("professional",dynamic.getProfession());
+                map.put("dynamictext",dynamic.getDynamictext());
+                map.put("createtime",dynamic.getCreatetime());
+                map.put("upcount",dynamic.getUpcount());
+                map.put("commcount",dynamic.getCommentcount());
+                mapList.add(map);
+            }
+        }else{
+            map = new HashMap();
+            map.put("code",500);
+            map.put("msg","failure");
+            mapList.add(map);
+        }
+        return  mapList;
+    }
 
     /**
      * 发布动态
@@ -82,7 +184,7 @@ public class DynamicController {
      */
     @RequestMapping("/dynamic/release")
     @ResponseBody
-    public Map<String,Object> insert(Dynamic record, MultipartFile[] tupian, HttpServletRequest request){
+    public Map<String,Object> insert(Integer userid,Dynamic record, MultipartFile[] tupian, HttpServletRequest request){
         try {
             Map map = new HashMap();
             StringBuilder stringBuilder = new StringBuilder();
@@ -106,6 +208,7 @@ public class DynamicController {
             String str = stringBuilder.toString();
             record.setDynamicimg(str);
             int i = dynamicService.insert(record);
+            dynamicService.dynamiduserid(record.getUid(),userid);
             if(i>0){
                 map.put("code",200);
                 map.put("msg","success")                                                                   ;
@@ -118,101 +221,6 @@ public class DynamicController {
             e.printStackTrace();
         }
         return null;
-    }
-
-    /**
-     * 查看个人动态
-     * @param userid
-     * @return
-     */
-    @RequestMapping("/dynamic/findbyid")
-    @ResponseBody
-    public List<Map<String,Object>> findbyid(Integer userid){
-        List<Map<String,Object>> mapList = new ArrayList<Map<String, Object>>();
-        Map<String,Object> map = null;
-        ArrayList<Dynamic> arrayList = new ArrayList();
-        arrayList = (ArrayList<Dynamic>) dynamicService.findbyid(userid);
-        if (arrayList!=null&&arrayList.size()>0){
-            for (Dynamic dynamic : arrayList) {
-                map = new HashMap();
-                ArrayList<String> arrayList1 = new ArrayList();
-                String dynamicimg = dynamic.getDynamicimg();
-                if (!StringUtils.isBlank(dynamicimg)){
-                    String[] split = dynamicimg.split(",");
-                    for (String s : split) {
-                        StringBuilder strb = new StringBuilder("http://localhost/imgs/");
-                        String  strb1 = strb.append(s).toString();
-                        arrayList1.add(strb1);
-                    }
-                    map.put("dynamicimg",arrayList1);
-                }
-                map.put("uid",dynamic.getUid());
-                map.put("head",dynamic.getHead());
-                map.put("username",dynamic.getUsername());
-                map.put("sex",dynamic.getSex());
-                map.put("address",dynamic.getAddress());
-                map.put("professional",dynamic.getProfessional());
-                map.put("dynamictext",dynamic.getDynamictext());
-                map.put("createtime",dynamic.getCreatetime());
-                map.put("upcount",dynamic.getUpcount());
-                map.put("commcount",dynamic.getCommcount());
-                mapList.add(map);
-            }
-        }else{
-            map = new HashMap();
-            map.put("code",500);
-            map.put("msg","failure");
-            mapList.add(map);
-        }
-        return  mapList;
-
-    }
-
-    /**
-     * 查看好友动态
-     * @param userid
-     * @return
-     */
-    @RequestMapping("/dynamic/friend")
-    @ResponseBody
-    public List<Map<String,Object>> friend(Integer userid){
-            List<Map<String,Object>> mapList = new ArrayList<Map<String, Object>>();
-            Map<String,Object> map = null;
-            ArrayList<Dynamic> arrayList = new ArrayList();
-            arrayList = (ArrayList<Dynamic>) dynamicService.friend(userid);
-            if (arrayList!=null&&arrayList.size()>0){
-                for (Dynamic dynamic : arrayList) {
-                    map = new HashMap();
-                    ArrayList<String> arrayList1 = new ArrayList();
-                    String dynamicimg = dynamic.getDynamicimg();
-                    if (!StringUtils.isBlank(dynamicimg)){
-                        String[] split = dynamicimg.split(",");
-                        for (String s : split) {
-                            StringBuilder strb = new StringBuilder("http://localhost/imgs/");
-                            String  strb1 = strb.append(s).toString();
-                            arrayList1.add(strb1);
-                        }
-                        map.put("dynamicimg",arrayList1);
-                    }
-                    map.put("uid",dynamic.getUid());
-                    map.put("head",dynamic.getHead());
-                    map.put("username",dynamic.getUsername());
-                    map.put("sex",dynamic.getSex());
-                    map.put("address",dynamic.getAddress());
-                    map.put("professional",dynamic.getProfessional());
-                    map.put("dynamictext",dynamic.getDynamictext());
-                    map.put("createtime",dynamic.getCreatetime());
-                    map.put("upcount",dynamic.getUpcount());
-                    map.put("commcount",dynamic.getCommcount());
-                    mapList.add(map);
-                }
-            }else{
-                map = new HashMap();
-                map.put("code",500);
-                map.put("msg","failure");
-                mapList.add(map);
-            }
-            return  mapList;
     }
 
     /**

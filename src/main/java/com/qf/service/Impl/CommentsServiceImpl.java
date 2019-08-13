@@ -17,4 +17,12 @@ public class CommentsServiceImpl implements CommentsService {
     public List<Comments> getcomm(Integer uid) {
         return commentsMapper.getcomm(uid);
     }
+
+    public int insert(Comments record) {
+        return commentsMapper.insert(record);
+    }
+
+    public void commdy(Integer dynamicid, Integer commentsid) {
+        commentsMapper.commdy(dynamicid,commentsid);
+    }
 }

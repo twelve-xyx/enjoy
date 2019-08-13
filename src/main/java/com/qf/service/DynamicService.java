@@ -7,15 +7,16 @@ import java.util.Map;
 
 public interface DynamicService {
 
-    public Map<String,Object> dianZan(Integer status, Integer dynamicId);
+    List<Dynamic> findall();
 
-    public List<Dynamic> findall();
+    List<Dynamic> findbyid(Integer userid);
+
+    List<Dynamic> friend(Integer userid);
 
     int insert(Dynamic record);
+    void dynamiduserid(Integer userid,Integer dyid);
 
-    public List<Dynamic> findbyid(Integer userid);
-
-    public List<Dynamic> friend(Integer userid);
+    Map<String,Object> dianZan(Integer status, Integer dynamicId);
 
     List<Dynamic> findallDynamic(int userid);
 }
