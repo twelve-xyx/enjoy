@@ -41,6 +41,15 @@ public interface UsersMapper {
     //删除标签
     int deleteTag(Lables lables);
 
+    //用户登录接口
 
+    //手机号,用户密码验证
+    Users loginUserPass(String uphone);
+    //ajax验证用户是否存在
+    Users ajaxLoginUser(String uphone);
+    //更改用户密码
+    int updateByPssword(Map map);
+
+    int deleteByPrimaryKey(String uphone);
 
 }

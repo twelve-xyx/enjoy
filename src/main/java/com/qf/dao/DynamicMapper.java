@@ -43,4 +43,7 @@ public interface DynamicMapper {
     public List<Dynamic> indexFindByUid();
 
     List<Dynamic> findallDynamic(int userid);
+
+
+
 }

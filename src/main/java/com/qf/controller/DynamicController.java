@@ -231,4 +231,13 @@ public class DynamicController {
     public Map<String,Object> dianZan(Integer status , Integer dynamicId){
         return  dynamicService.dianZan(status,dynamicId);
     }
+
+    @RequestMapping("findall")
+    @ResponseBody
+    public Map<String,Object> findall(){
+        List<Dynamic> findall = dynamicService.findall();
+        Map map = new HashMap();
+        map.put("find",findall);
+        return  map;
+    }
 }
