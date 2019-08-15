@@ -98,37 +98,48 @@ public class LoginController {
     @RequestMapping(method = RequestMethod.POST,value ="/LoginphoneKey")
     @ResponseBody
     public Map LoginphoneKey(HttpServletRequest request,String uphone,String key,String status){
-        boolean b = loginService.LoginphoneKey(request, uphone, key,status);
+        int b = loginService.LoginphoneKey(request, uphone, key,status);
         Map mapX = new HashMap();
         //判断登录是否成功
-            if (b)
+            if (b==0)
             {
                 mapX.put("code",0);
                 mapX.put("status","登录成功");
                 return mapX;
             }
-            else {
+            else if (b==1){
                 mapX.put("code",1);
                 mapX.put("status","登录失败");
                 return mapX;
+            }else if (b==2){
+                mapX.put("code",2);
+                mapX.put("status","跳转输入密码界面");
+                return mapX;
+            }else {
+                return null;
             }
 
     }
     //注册用户
     @RequestMapping(method = RequestMethod.POST,value ="/insert")
     @ResponseBody
-    public Map insert(HttpServletResponse response,HttpServletRequest request,String uphone, String key) {
+    public Map insert(HttpServletRequest request, String pass) {
       //判断用户的手机号,验证码
-        boolean insert = loginService.insert(request, uphone, key);
+        String zhuce = (String) request.getSession().getAttribute("zhuce");
+        System.out.println(zhuce);
+        String uphone1 = (String) request.getSession().getAttribute(zhuce);
+        boolean insert = loginService.insert(request, uphone1, pass);
         Map mapX = new HashMap();
         //处理乱码
         //判断是否注册成功
             if (insert) {
+                request.getSession().removeAttribute("zhuce");
                 mapX.put("code",0);
                 mapX.put("status","注册成功");
                 return mapX;
             }
             else {
+                request.getSession().removeAttribute("zhuce");
                 mapX.put("code",1);
                 mapX.put("status","注册失败");
                 return mapX;

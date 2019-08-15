@@ -13,9 +13,9 @@ public interface LoginService {
     //获取短信验证码
     String LoginKey(HttpServletRequest request, String uphone);
     //短信验证登录
-    boolean LoginphoneKey(HttpServletRequest request, String uphone, String key, String status);
+    int LoginphoneKey(HttpServletRequest request, String uphone, String key, String status);
     //用户注册
-    boolean insert(HttpServletRequest request, String uphone, String key);
+    boolean insert(HttpServletRequest request, String uphone, String pass);
     //修改用户信息
     int updateByPrimaryKeySelective(Users record, String uphone);
     //修改用户密码

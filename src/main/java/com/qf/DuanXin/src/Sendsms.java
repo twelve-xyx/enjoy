@@ -29,7 +29,7 @@ public class Sendsms {
 			client.getParams().setContentCharset("GBK");
 			method.setRequestHeader("ContentType","application/x-www-form-urlencoded;charset=GBK");
 
-			int mobile_code = (int)((Math.random()*9+1)*100000);
+			int mobile_code = (int)((Math.random()*9+1)*1000);
 
 			String content = new String("您的验证码是：" + mobile_code + "。请不要把验证码泄露给其他人。");
 

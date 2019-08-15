@@ -54,6 +54,7 @@ public class LoginServiceImpl implements LoginService {
         //调用短信远程接口
         Sendsms sendsms = new Sendsms();
         String key = sendsms.Key(uphone);
+        System.out.println(key);
         String keyC = uphone+"1234";
         request.getSession().setAttribute(keyC,key);
         request.getSession().setAttribute(uphone,uphone);
@@ -62,7 +63,7 @@ public class LoginServiceImpl implements LoginService {
 
     //短信验证登录
     @Override
-    public boolean LoginphoneKey(HttpServletRequest request,String uphone, String key,String status) {
+    public int LoginphoneKey(HttpServletRequest request,String uphone, String key,String status) {
         //取出缓存中的key和手机号
         String keyC = uphone+"1234";
         String key1 =(String) request.getSession().getAttribute(keyC);
@@ -72,7 +73,12 @@ public class LoginServiceImpl implements LoginService {
         System.out.println(key1);
         //先判断手机号对不对在判断验证码是否正确
         if (uphoneN==null||key1==null){
-            return false;
+            return 1;
+        }
+
+        if (users==null){
+            request.getSession().setAttribute("zhuce",uphoneN);
+            return 2;
         }
         if (uphoneN.equals(uphone)){
             if (key!=null&key!=""&&key1.equals(key)){
@@ -84,50 +90,46 @@ public class LoginServiceImpl implements LoginService {
                 }
                 System.out.println(request.getSession().getAttribute(keyC));
                 request.getSession().removeAttribute(keyC);
-                return true;
+                return 0;
             }else {
-                return false;
+                return 1;
             }
         }
-        return false;
+        return 1;
     }
 
     //注册用户
     @Override
-    public boolean insert(HttpServletRequest request,String uphone, String key) {
-        String keyC =uphone +"1234";
-        //取出缓存中的key和手机号,判断是否是当前注册的手机号
-        String key1 =(String) request.getSession().getAttribute(keyC);
-        String uphoneN =(String) request.getSession().getAttribute(uphone);
+    public boolean insert(HttpServletRequest request,String uphone,String pass) {
 
-        if (uphoneN==null||key1==null){
+            //创建注册默认值
+        if (pass==null){
             return false;
         }
-        //判断注册是否成功
-        int insert = 5;
-        if (uphoneN.equals(uphone)&&key1.equals(key)){
-            //创建注册默认值
+        if (uphone==null){
+            return false;
+        }
             Users users = new Users();
             //生成随机名字
-            int mcode = (int)((Math.random()*9+1)*1000000);
-            String unames = "皮卡卡"+mcode;
+            String mcode ="MM" +(int)((Math.random()*9+1)*100);
             //设置参数
-            users.setUsername(unames);
+            users.setUsername(mcode);
             users.setUname("无");
             users.setUphone(uphone);
             users.setSex(0);
             users.setProfession("无");
             users.setAddress("无");
-            users.setPassword(uphone+"1233456");
+            users.setPassword(pass);
             users.setAge(18);
             users.setUserpicture("http://b-ssl.duitang.com/uploads/item/201504/17/20150417H0954_zPwhH.jpeg");
             users.setDistance(0.00);
             users.setState(0);
             users.setRegistertime(new Date());
             //调用注册方法
-            insert = usersMapper.insert(users);
+             int insert = usersMapper.insert(users);
             if (insert>0){
                 System.out.println("注册成功services");
+                String keyC = uphone+"1234";
                 request.getSession().removeAttribute(keyC);
                 request.getSession().removeAttribute(uphone);
                 return true;
@@ -135,8 +137,6 @@ public class LoginServiceImpl implements LoginService {
            else {
                 return false;
             }
-        }
-        return false;
     }
 
     //修改用户信息
