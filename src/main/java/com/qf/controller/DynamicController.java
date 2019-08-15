@@ -189,6 +189,10 @@ public class DynamicController {
     @RequestMapping("/dynamic/release")
     @ResponseBody
     public Map<String,Object> insert(Integer userid,Dynamic record, String[] tupian, HttpServletRequest request) throws IOException {
+        record.setUpcount(0);
+        record.setCommentcount(0);
+        record.setCreatetime(new Date());
+
         System.out.println(tupian);
         Map<String,Object> map = new HashMap<String, Object>();
         String dir = request.getServletContext().getRealPath("/upload");

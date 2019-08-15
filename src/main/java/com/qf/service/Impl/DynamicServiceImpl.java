@@ -67,7 +67,7 @@ public class DynamicServiceImpl implements DynamicService {
         Dynamic dynamic = dynamicMapper.selectByPrimaryKey(dynamicId);
         if(status==0){
             dynamic.setUpcount(dynamic.getUpcount()+1);
-        }else if(status==1){
+        }else if(status==1&&dynamic.getUpcount()>0){
             dynamic.setUpcount(dynamic.getUpcount()-1);
         }else{
             map.put("code",400);
