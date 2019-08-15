@@ -1,10 +1,13 @@
 com\qf\pojo\FrieandApply.class
 com\qf\service\UsersService.class
 com\qf\controller\TestController.class
+com\qf\controller\LoginController.class
 com\qf\pojo\CommentsExample.class
 com\qf\pojo\Collect.class
 com\qf\service\Impl\CommentsServiceImpl.class
 com\qf\pojo\PortraitExample$Criterion.class
+com\qf\DuanXin\src\Sendsms.class
+com\qf\service\LoginService.class
 com\qf\pojo\PortraitExample.class
 com\qf\pojo\Dynamic.class
 com\qf\service\CommentsService.class
@@ -18,6 +21,7 @@ com\qf\pojo\Users.class
 com\qf\service\Impl\UsersServiceImpl.class
 com\qf\controller\PortratiController.class
 com\qf\dao\UsersMapper.class
+com\qf\service\Impl\LoginServiceImpl.class
 com\qf\pojo\DynamicExample$Criterion.class
 com\qf\controller\DynamicController.class
 com\qf\pojo\PortraitExample$Criteria.class
@@ -25,6 +29,7 @@ com\qf\pojo\Pictures.class
 com\qf\pojo\DynamicExample.class
 com\qf\pojo\DynamicExample$Criteria.class
 com\qf\pojo\CommentsExample$GeneratedCriteria.class
+com\qf\DuanXin\src\util\StringUtil.class
 com\qf\dao\PicturesMapper.class
 com\qf\dao\LablesMapper.class
 com\qf\service\CollectService.class
@@ -32,6 +37,7 @@ com\qf\pojo\Friendlist.class
 com\qf\controller\FriendController.class
 com\qf\pojo\Comments.class
 com\qf\pojo\Friend.class
+com\qf\pojo\DynamicVO.class
 com\qf\Test.class
 com\qf\service\Impl\PortraitServiceImpl.class
 com\qf\filter\CORSFilter.class

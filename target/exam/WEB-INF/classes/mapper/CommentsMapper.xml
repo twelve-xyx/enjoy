@@ -82,7 +82,7 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
+    select
     <include refid="Base_Column_List" />
     from comments
     where commid = #{commid,jdbcType=INTEGER}
@@ -188,7 +188,7 @@
 
   <select id="getcomm" resultMap="BaseResultMap" parameterType="int">
     select m.* from  comments m , dynamic d, comments_dynamic cd where
-    d.uid = cd.uid and m.commid = cd.commid and d.uid = #{uid}
+    d.uid = cd.dynamicid and m.commid = cd.commentsid and d.uid = #{uid}
   </select>
 
   <insert id="comments" parameterType="com.qf.pojo.Comments">

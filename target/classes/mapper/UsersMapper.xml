@@ -63,6 +63,16 @@
 
 
 
+  <select id="loginUserPass" resultMap="BaseResultMap">
+    select password from users where uphone=#{uphone}
+  </select>
+
+  <select id="ajaxLoginUser" resultMap="BaseResultMap">
+    select * from users where uphone=#{uphone}
+  </select>
+  <update id="updateByPssword" parameterType="com.qf.pojo.Users">
+         update users set password = #{password,jdbcType=VARCHAR} where uphone = #{uphone,jdbcType=VARCHAR}
+  </update>
 
   <select id="findById" resultMap="BaseResultMap">
         select * from users u,lables l,pictures p
@@ -76,10 +86,13 @@
     from users
     where uid = #{uid,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+
+  <delete id="deleteByPrimaryKey">
     delete from users
-    where uid = #{uid,jdbcType=INTEGER}
+    where uphone = #{uphone,jdbcType=VARCHAR}
   </delete>
+
+
   <insert id="insert" parameterType="com.qf.pojo.Users">
     insert into users (uid, username, uname,
       uphone, sex, profession,
